@@ -1,0 +1,1809 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 37.4.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+    
+    
+    
+    
+<link rel="icon" type="image/x-icon" href="https://cta.tech/favicon.ico">
+    
+<style>
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+      text-align: center;
+    }
+    th {
+      text-align: center;
+    }
+    
+</style>
+  
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+cite .bibref{font-style:italic}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(:where(#toc>h2,#abstract>h2,#sotd>h2,.head>h2)):has(+a.self-link){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(:where(#toch2))+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.8;text-decoration:none}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§"}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h2,h3)+a.self-link::before{color:var(--heading-text)}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
+</style>
+<meta name="color-scheme" content="light">
+<title>Cybersecurity for Connectivity Protocols (CTA-5500)</title>
+<meta name="description" content="This document outlines a simple means by which every media player can communicate data with each media object request and have it received and processed consistently by every CDN.
+        This standard was developed by the Consumer Technology Association’s Cybersecurity Labeling Steering Committee. This is an approved and published CTA standard document. All CTA standards are available at CTA.tech/Standards.">
+<style>
+var:hover{text-decoration:underline;cursor:pointer}
+var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
+@media (prefers-color-scheme:dark){
+var.respec-hl{filter:saturate(.9) brightness(.9)}
+}
+var.respec-hl-c1{--bg-color:#f4d200}
+var.respec-hl-c2{--bg-color:#ff87a2}
+var.respec-hl-c3{--bg-color:#96e885}
+var.respec-hl-c4{--bg-color:#3eeed2}
+var.respec-hl-c5{--bg-color:#eacfb6}
+var.respec-hl-c6{--bg-color:#82ddff}
+var.respec-hl-c7{--bg-color:#ffbcf2}
+@media print{
+var.respec-hl{background:0 0;color:#000;box-shadow:unset}
+}
+</style>
+<style>
+var[data-type]{position:relative}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "publishDate": "2026-10-22",
+  "latestVersion": "https://www.cta.tech/standards/cta-5500/",
+  "editors": [
+    {
+      "name": "Alexandra Blasgen",
+      "company": "Consumer Technology Association",
+      "mailto": "ablasgen@CTA.tech?subject=Inquiry regarding CTA-5500 Cybersecurity for Connectivity Protocols",
+      "url": "mailto:ablasgen@CTA.tech?subject=Inquiry regarding CTA-5500 Cybersecurity for Connectivity Protocols"
+    }
+  ],
+  "maxTocLevel": 3,
+  "edDraftURI": "",
+  "logos": [
+    {
+      "src": "https://cdn.cta.tech/cta/media/media/home/cta-logo.png",
+      "alt": "Consumer Technology Association (CTA)",
+      "height": 65,
+      "width": 100,
+      "id": "cta-logo",
+      "url": "https://cta.tech/"
+    }
+  ],
+  "publishISODate": "2026-10-22T00:00:00.000Z",
+  "generatedSubtitle": "22 October 2026"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/base.css">
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" disabled=""></head>
+
+  <body class="h-entry informative"><div class="head">
+    <p class="logos"><a class="logo" href="https://cta.tech/"><img crossorigin="" alt="Consumer Technology Association (CTA)" height="65" id="cta-logo" src="https://cdn.cta.tech/cta/media/media/home/cta-logo.png" width="100">
+  </a></p>
+    <h1 id="title" class="title">Cybersecurity for Connectivity Protocols (CTA-5500)</h1> 
+    <p id="w3c-state"> <time class="dt-published" datetime="2026-10-22">22 October 2026</time></p>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        
+        <dt>Latest published version:</dt><dd>
+                  <a href="https://www.cta.tech/standards/cta-5500/">https://www.cta.tech/standards/cta-5500/</a>
+                </dd>
+        
+        
+        
+        
+        
+        
+        
+        <dt>
+                  Editor:
+                </dt><dd class="editor p-author h-card vcard">
+    <a class="ed_mailto u-email email p-name" href="mailto:ablasgen@CTA.tech?subject=Inquiry regarding CTA-5500 Cybersecurity for Connectivity Protocols">Alexandra Blasgen</a> (<span class="p-org org h-org">Consumer Technology Association</span>)
+  </dd>
+        
+        
+        
+        
+        
+      </dl>
+    </details>
+    
+    
+    <p class="copyright">
+
+<strong>NOTICE</strong><br>Consumer Technology Association (CTA)™ Standards, Bulletins and other technical publications are designed to serve the public interest through eliminating misunderstandings between manufacturers and purchasers, facilitating interchangeability and improvement of products, and assisting the reader in selecting and obtaining with minimum delay the proper product for the reader’s particular need. Existence of such Standards, Bulletins and other technical publications shall not in any respect preclude any member or nonmember of the Consumer Technology Association from manufacturing or selling products not conforming to such Standards, Bulletins or other technical publications, nor shall the existence of such Standards, Bulletins and other technical publications preclude their voluntary use by those other than Consumer Technology Association members, whether the standard is to be used either domestically or internationally.<br><br>
+<i>Standards and Publications are adopted by CTA in accordance with American National Standards Institute (ANSI) patent policy. By such action, neither CTA nor ANSI assumes any liability to any patent owner, nor does either organization assume any obligation whatever to parties adopting the Standard or Publication. CTA and ANSI take no position with respect to the validity of any Essential Patent Claim relating to this standard. Neither CTA nor ANSI is responsible for identifying patents for which a license may be required in order to comply with any CTA or ANS standard.</i><br><br>
+This document does not purport to address all safety problems associated with its use or all applicable regulatory requirements. It is the responsibility of the user of this document to establish appropriate safety and health practices and to determine the applicability of regulatory limitations before its use.<br><br>
+This document is copyrighted by the Consumer Technology Association (CTA)® and may not be reproduced, in whole or part, without written permission. Federal copyright law prohibits unauthorized reproduction of this document by any means. Organizations may obtain permission to reproduce a limited number of copies by entering into a license agreement. Requests to reproduce text, data, charts, figures or other material should be made to the Consumer Technology Association (CTA).<br><br>
+</p>
+    <hr title="Separator for header">
+  </div>
+
+
+    
+    <center>Published by ©CONSUMER TECHNOLOGY ASSOCIATION 2026 <br>Technology &amp; Standards Department <br><a href="https://www.cta.tech" target="_blank">www.CTA.tech</a><br><br>
+All rights reserved<br><br></center>
+<i>This online copy of this specification is provided for informational use. The controlling version is hosted at the "Latest published version" link above. In case of any discrepancies between this version and the published version, the published version prevails.</i>
+<p></p>
+
+    <section id="abstract" class="introductory"><h2>Abstract</h2>
+      <p>
+
+        This document outlines a simple means by which every media player can communicate data with each media object request and have it received and processed consistently by every CDN.<br><br>
+        This standard was developed by the Consumer Technology Association’s Cybersecurity Labeling Steering Committee. This is an approved and published CTA standard document. All CTA standards are available at <a href="https://CTA.tech/Standards" target="_blank">CTA.tech/Standards</a>.
+      </p>
+    </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#scope"><bdi class="secno">1. </bdi>Scope</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background"><bdi class="secno">1.1 </bdi>Background</a></li><li class="tocline"><a class="tocxref" href="#role-of-liaisons"><bdi class="secno">1.2 </bdi>Role of Liaisons</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">2. </bdi>References</a></li><li class="tocline"><a class="tocxref" href="#compliance-notation"><bdi class="secno">3. </bdi>Compliance Notation</a></li><li class="tocline"><a class="tocxref" href="#definitions-symbols-and-abbreviations"><bdi class="secno">4. </bdi>Definitions, Symbols and Abbreviations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definitions"><bdi class="secno">4.1 </bdi>Definitions</a></li><li class="tocline"><a class="tocxref" href="#symbols-and-abbreviations"><bdi class="secno">4.2 </bdi>Symbols and Abbreviations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#wireless-protocols"><bdi class="secno">5. </bdi>Wireless Protocols</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ant-ant"><bdi class="secno">5.1 </bdi>ANT/ANT+</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#requirements-for-devices-with-ant-ant-capable-semiconductors"><bdi class="secno">5.1.1 </bdi>Requirements for Devices with ANT/ANT+ Capable Semiconductors</a></li><li class="tocline"><a class="tocxref" href="#required-documentation"><bdi class="secno">5.1.2 </bdi>Required Documentation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bluetooth-bluetooth-le"><bdi class="secno">5.2 </bdi>Bluetooth / Bluetooth LE</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#requirements"><bdi class="secno">5.2.1 </bdi>Requirements</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#test-procedures"><bdi class="secno">5.2.2 </bdi>Test Procedures</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#mesh-devices"><bdi class="secno">5.2.3 </bdi>Mesh Devices</a></li><li class="tocline"><a class="tocxref" href="#informative-best-practices"><bdi class="secno">5.2.4 </bdi>Informative Best Practices</a></li></ol></li><li class="tocline"><a class="tocxref" href="#lora-and-lorawan"><bdi class="secno">5.3 </bdi>LoRa and LoRaWAN</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#requirements-0"><bdi class="secno">5.3.1 </bdi>Requirements</a></li><li class="tocline"><a class="tocxref" href="#informative-best-practices-0"><bdi class="secno">5.3.2 </bdi>Informative Best Practices</a></li><li class="tocline"><a class="tocxref" href="#test-procedure"><bdi class="secno">5.3.3 </bdi>Test Procedure</a></li></ol></li><li class="tocline"><a class="tocxref" href="#matter"><bdi class="secno">5.4 </bdi>Matter</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#secure-data-storage"><bdi class="secno">5.4.1 </bdi>Secure Data Storage</a></li><li class="tocline"><a class="tocxref" href="#secure-data-transmission"><bdi class="secno">5.4.2 </bdi>Secure Data Transmission</a></li><li class="tocline"><a class="tocxref" href="#secure-interface-access"><bdi class="secno">5.4.3 </bdi>Secure Interface Access</a></li></ol></li><li class="tocline"><a class="tocxref" href="#embedded-4g-5g"><bdi class="secno">5.5 </bdi>Embedded 4G/5G</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#requirements-1"><bdi class="secno">5.5.1 </bdi>Requirements</a></li><li class="tocline"><a class="tocxref" href="#informative-best-practices-1"><bdi class="secno">5.5.2 </bdi>Informative best practices</a></li><li class="tocline"><a class="tocxref" href="#detailed-test-procedures"><bdi class="secno">5.5.3 </bdi>Detailed Test Procedures</a></li></ol></li><li class="tocline"><a class="tocxref" href="#near-field-communication-nfc"><bdi class="secno">5.6 </bdi>Near Field Communication (NFC)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#nfc"><bdi class="secno">5.6.1 </bdi>NFC</a></li><li class="tocline"><a class="tocxref" href="#requirements-2"><bdi class="secno">5.6.2 </bdi>Requirements</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#thread"><bdi class="secno">5.7 </bdi>Thread</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#secure-data-transmission-0"><bdi class="secno">5.7.1 </bdi>Secure Data Transmission</a></li><li class="tocline"><a class="tocxref" href="#secure-interface-access-0"><bdi class="secno">5.7.2 </bdi>Secure Interface Access</a></li><li class="tocline"><a class="tocxref" href="#network-interface-data-protection"><bdi class="secno">5.7.3 </bdi>Network Interface Data Protection</a></li></ol></li><li class="tocline"><a class="tocxref" href="#transport-layer-security-tls"><bdi class="secno">5.8 </bdi>Transport Layer Security (TLS)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#requirements-3"><bdi class="secno">5.8.1 </bdi>Requirements</a></li><li class="tocline"><a class="tocxref" href="#tls-security-requirements-test-procedures"><bdi class="secno">5.8.2 </bdi>TLS Security Requirements &amp; Test Procedures</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#informative-best-practices-2"><bdi class="secno">5.8.3 </bdi>Informative Best Practices</a></li></ol></li><li class="tocline"><a class="tocxref" href="#uwb"><bdi class="secno">5.9 </bdi>UWB</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#requirements-4"><bdi class="secno">5.9.1 </bdi>Requirements</a></li><li class="tocline"><a class="tocxref" href="#test-procedures-0"><bdi class="secno">5.9.2 </bdi>Test Procedures</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#informative-best-practices-3"><bdi class="secno">5.9.3 </bdi>Informative Best Practices</a></li></ol></li><li class="tocline"><a class="tocxref" href="#wi-fi"><bdi class="secno">5.10 </bdi>Wi‑Fi</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#requirements-5"><bdi class="secno">5.10.1 </bdi>Requirements</a></li><li class="tocline"><a class="tocxref" href="#informative-best-practices-4"><bdi class="secno">5.10.2 </bdi>Informative best practices</a></li><li class="tocline"><a class="tocxref" href="#wi-fi-security-requirements-test-procedures"><bdi class="secno">5.10.3 </bdi>Wi‑Fi Security Requirements &amp; Test Procedures</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#z-wave"><bdi class="secno">5.11 </bdi>Z-Wave</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#requirements-6"><bdi class="secno">5.11.1 </bdi>Requirements</a></li><li class="tocline"><a class="tocxref" href="#test-procedures-1"><bdi class="secno">5.11.2 </bdi>Test Procedures</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#informative-best-practices-5"><bdi class="secno">5.11.3 </bdi>Informative Best Practices</a></li></ol></li><li class="tocline"><a class="tocxref" href="#zigbee"><bdi class="secno">5.12 </bdi>Zigbee</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#requirements-7"><bdi class="secno">5.12.1 </bdi>Requirements</a></li><li class="tocline"><a class="tocxref" href="#informative-best-practices-6"><bdi class="secno">5.12.2 </bdi>Informative Best Practices</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#secure-data-transmission-5"><bdi class="secno">5.12.3 </bdi>Secure Data Transmission</a></li><li class="tocline"><a class="tocxref" href="#secure-interface-access-3"><bdi class="secno">5.12.4 </bdi>Secure Interface Access</a></li><li class="tocline"><a class="tocxref" href="#test-procedures-2"><bdi class="secno">5.12.5 </bdi>Test Procedures</a></li></ol></li></ol></li></ol></nav>
+
+
+
+
+
+
+
+<section id="scope"><div class="header-wrapper"><h2 id="x1-scope"><bdi class="secno">1. </bdi>Scope</h2><a class="self-link" href="#scope" aria-label="Permalink for Section 1."></a></div>
+<p>This document defines cybersecurity requirements for connectivity protocols commonly used in consumer Internet of Things (IoT) devices. It is intended to be used in conjunction with more general cybersecurity requirements for a consumer device that has internet access via one or more of these protocols.</p>
+<section id="background"><div class="header-wrapper"><h3 id="x1-1-background"><bdi class="secno">1.1 </bdi>Background</h3><a class="self-link" href="#background" aria-label="Permalink for Section 1.1"></a></div>
+<p>Cybersecurity requirements for a connected device may involve “on-device” requirements, such as data storage or asset identification security requirements. When connectivity to the rest of the internet is considered, secure application layer cryptography, including data encryption, is expected. However, the specific protocol used to give the IoT device a connection to the internet should also be secure.</p>
+<p>The security requirements for a protocol are specific to that protocol. Examples of protocols include Wi-Fi, Bluetooth, LoRa/LoRaWAN and others. This document considers each protocol in its own section and defines requirements specific to that protocol. Such requirements may involve:</p>
+<ul>
+<li>Use of some approved options in the protocol, but avoidance of other approved options.</li>
+<li>Device certification by the authority for the protocol.</li>
+</ul>
+</section><section id="role-of-liaisons"><div class="header-wrapper"><h3 id="x1-2-role-of-liaisons"><bdi class="secno">1.2 </bdi>Role of Liaisons</h3><a class="self-link" href="#role-of-liaisons" aria-label="Permalink for Section 1.2"></a></div>
+<p>This document was developed through close cooperation between CTA and the relevant authorities for each protocol. CTA maintains liaison relationships with many organizations. The contents of this document generally represent the expertise of those organizations.</p>
+</section></section><section id="references"><div class="header-wrapper"><h2 id="x2-references"><bdi class="secno">2. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Section 2."></a></div>
+<p>The following references contain provisions that, through reference in this text, constitute informative provisions of this standard. At the time of publication, the edition indicated was valid. All standards are subject to revision, and parties to agreements based on this standard are encouraged to investigate the possibility of applying the most recent edition of the standard indicated below.</p>
+<ol>
+<li>CTA-2138, <em>Deprecated Technologies</em>.</li>
+</ol>
+</section><section id="compliance-notation"><div class="header-wrapper"><h2 id="x3-compliance-notation"><bdi class="secno">3. </bdi>Compliance Notation</h2><a class="self-link" href="#compliance-notation" aria-label="Permalink for Section 3."></a></div>
+<p>CTA defines the following compliance terms for use in its documents:</p>
+<table>
+<tbody>
+<tr>
+<td width="108">
+<p><strong>should </strong></p>
+</td>
+<td width="443">
+<p>This word indicates that a certain course of action is preferred but not necessarily required.</p>
+</td>
+</tr>
+<tr>
+<td width="108">
+<p><strong>should not </strong></p>
+</td>
+<td width="443">
+<p>This phrase means a certain possibility or course of action is undesirable but not prohibited.</p>
+</td>
+</tr>
+<tr>
+<td width="108">
+<p><strong>may</strong></p>
+</td>
+<td width="443">
+<p>This phrase indicates that a certain course of action is optional.</p>
+</td>
+</tr>
+<tr>
+<td width="108">
+<p><strong>need not</strong></p>
+</td>
+<td width="443">
+<p>This phrase indicates that a certain course of action is not required (i.e., optional), and this document does not express a recommendation as to preference.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section><section id="definitions-symbols-and-abbreviations"><div class="header-wrapper"><h2 id="x4-definitions-symbols-and-abbreviations"><bdi class="secno">4. </bdi>Definitions, Symbols and Abbreviations</h2><a class="self-link" href="#definitions-symbols-and-abbreviations" aria-label="Permalink for Section 4."></a></div>
+<section id="definitions"><div class="header-wrapper"><h3 id="x4-1-definitions"><bdi class="secno">4.1 </bdi>Definitions</h3><a class="self-link" href="#definitions" aria-label="Permalink for Section 4.1"></a></div>
+<p><strong>Sensitive Data</strong> Data that, if disclosed, altered, or destroyed without authorization, would adversely affect the privacy, security, or operational functionality of an IoT Product or its users.</p>
+</section><section id="symbols-and-abbreviations"><div class="header-wrapper"><h3 id="x4-2-symbols-and-abbreviations"><bdi class="secno">4.2 </bdi>Symbols and Abbreviations</h3><a class="self-link" href="#symbols-and-abbreviations" aria-label="Permalink for Section 4.2"></a></div>
+<p><strong>AES-CCM</strong> Advanced Encryption Standard</p>
+<p><strong>ANT</strong> Adaptive Network Topology</p>
+<p><strong>BR/EDR </strong>Basic Rate/Enhanced Data Rate</p>
+<p><strong>CCM </strong>Counter with Cipher Block Chaining-Message Authentication Code</p>
+<p><strong>CSA </strong>Connectivity Standards Alliance</p>
+<p><strong>DTLS </strong>Datagram Transport Layer Security</p>
+<p><strong>ECDH </strong>Elliptic-curve Diffie–Hellman</p>
+<p><strong>GATT </strong>Generic Attribute Profile</p>
+<p><strong>IoT </strong>Internet of Things</p>
+<p><strong>LoRa </strong> Long Range</p>
+<p><strong>LoRaWAN </strong>Long Range Wide Area Network</p>
+<p><strong>MAC </strong>Media Access Control</p>
+<p><strong>MIC</strong> Message Integrity Check&nbsp;</p>
+<p><strong>MITM </strong> Man-in-the-Middle</p>
+<p><strong>MLE </strong>Mesh Link Establishment</p>
+<p><strong>NFC </strong>Near-Field Communication</p>
+<p><strong>OTAA </strong>Over-the-Air Activation</p>
+<p><strong>PQC</strong> Post-Quantum Cryptography</p>
+<p><strong>STS </strong>Scrambled Timestamp Sequences</p>
+<p><strong>TLS</strong> Transport Layer Security</p>
+<p><strong>UI </strong>User Interface</p>
+<p><strong>UWB</strong> Ultra-Wideband</p>
+</section></section><section id="wireless-protocols"><div class="header-wrapper"><h2 id="x5-wireless-protocols"><bdi class="secno">5. </bdi>Wireless Protocols</h2><a class="self-link" href="#wireless-protocols" aria-label="Permalink for Section 5."></a></div>
+<section id="ant-ant"><div class="header-wrapper"><h3 id="x5-1-ant-ant"><bdi class="secno">5.1 </bdi>ANT/ANT+</h3><a class="self-link" href="#ant-ant" aria-label="Permalink for Section 5.1"></a></div>
+<p>ANT/ANT+ is a network technology developed by a division of Garmin Canada. Garmin no longer offers certification of ANT/ANT+ products to manufacturers.</p>
+<p>Specifically, in January of 2025, Garmin updated the ANT+ Adopter Agreement to reflect that the ANT+ membership program and ANT+ product certification programs, along with associated engineering support would be discontinued on June 30, 2025.</p>
+<p>The official statement of these changes includes the following explanation:</p>
+<p><em>"While these changes will terminate the membership and certification programs for ANT+, ANT devices using the defined profiles will not be affected. For companies continuing to develop products that use the ANT wireless protocol, ANT licensing is also unaffected by these changes to the ANT+ programs."</em> [https://www.thisisant.com/business/go-ant/ant-brand]</p>
+<p>Therefore, this decision does not end the manufacturing and availability of ANT/ANT+ semiconductors. Products continue supporting existing ANT/ANT+ profiles for backward compatibility.</p>
+<p>A product which implements ANT/ANT+ capability for use by the end-user is ineligible for certification under this program. This exclusion includes products which include ANT/ANT+ capability disabled by default but with a way for the end-user to enable the technology.</p>
+<p>Note that the presence of the ANT/ANT+ feature in silicon, when permanently disabled, does not bar an IoT Product from certification.</p>
+<section id="requirements-for-devices-with-ant-ant-capable-semiconductors"><div class="header-wrapper"><h4 id="x5-1-1-requirements-for-devices-with-ant-ant-capable-semiconductors"><bdi class="secno">5.1.1 </bdi>Requirements for Devices with ANT/ANT+ Capable Semiconductors</h4><a class="self-link" href="#requirements-for-devices-with-ant-ant-capable-semiconductors" aria-label="Permalink for Section 5.1.1"></a></div>
+<p><strong>Using Semiconductors that have ANT/ANT+ Capability</strong></p>
+<ul>
+<li>A product that incorporates a processor with ANT/ANT+ among its features shall disable the capability in a way that makes ANT/ANT+ unavailable to end-users.</li>
+</ul>
+</section><section id="required-documentation"><div class="header-wrapper"><h4 id="x5-1-2-required-documentation"><bdi class="secno">5.1.2 </bdi>Required Documentation</h4><a class="self-link" href="#required-documentation" aria-label="Permalink for Section 5.1.2"></a></div>
+<ul>
+<li>Design details showing how the ANT/ANT+ capability is disabled or otherwise unavailable to end users.</li>
+</ul>
+</section></section><section id="bluetooth-bluetooth-le"><div class="header-wrapper"><h3 id="x5-2-bluetooth-bluetooth-le"><bdi class="secno">5.2 </bdi>Bluetooth / Bluetooth LE</h3><a class="self-link" href="#bluetooth-bluetooth-le" aria-label="Permalink for Section 5.2"></a></div>
+<section id="requirements"><div class="header-wrapper"><h4 id="x5-2-1-requirements"><bdi class="secno">5.2.1 </bdi>Requirements</h4><a class="self-link" href="#requirements" aria-label="Permalink for Section 5.2.1"></a></div>
+<p>These requirements apply to connectable Bluetooth devices that require an association with peer devices (typically achieved via pairing and bonding with a smartphone or similar Central device) before allowing for access to Sensitive Data over the Bluetooth connection.</p>
+<p>For devices implementing Bluetooth connections, there are two options for secure connection establishment before Sensitive Data is exchanged.</p>
+<section id="option-a-bluetooth-security"><div class="header-wrapper"><h5 id="x5-2-1-1-option-a-bluetooth-security"><bdi class="secno">5.2.1.1 </bdi>Option A: Bluetooth Security</h5><a class="self-link" href="#option-a-bluetooth-security" aria-label="Permalink for Section 5.2.1.1"></a></div>
+<p><strong>General Requirements</strong></p>
+<ol type="A">
+<li>The product implementation shall conform to adopted specifications from the Bluetooth Special Interest Group (SIG) that are listed on the Bluetooth.com website (<a href="https://www.bluetooth.com/specifications/specs/">https://www.bluetooth.com/specifications/specs/</a>) and are not listed as being in “Deprecated” or “Withdrawn” status at the time of implementation.</li>
+<br>Products that conform to these specifications are using security standards that are approved by the Bluetooth SIG and current as of the time of implementation.
+<li>For Bluetooth Low Energy (Bluetooth LE), the device shall implement LE Secure Connections; for Basic Rate/Enhanced Data Rate (BR/EDR), the device shall implement BR/EDR Secure Connections.</li>
+<li>Pairing shall be implemented via: “Passkey Entry”, “Out of Band”, or “Numeric Comparison” where there is a User Interface (UI) or other means to exchange out of band data; or where there is no or limited UI and no ability to exchange out of band data, “Just Works” (see note regarding Just Works).
+<br><br>Note: The “Just Works” pairing method may be used but is not recommended due to lack of authentication. However, the actual risk is low because an attacker must be in the local (RF) area attempting a Man in the Middle attack with sophisticated equipment and either intercept the initial connection attempt or execute selective jamming during pairing. Just Works is reserved for devices with no or limited UI.
+</li></ol>
+<p><strong>Key and Pairing Requirements</strong></p>
+<ol type="A">
+<li>The IoT Product shall store Bluetooth security keys securely after bonding.</li>
+<li>Keys exchanged during pairing shall not be reused across devices; this restriction does not apply to the identity-resolving or connection signature-resolving keys (IRK/CSRK).</li>
+<li>Any reconnection shall require link encryption and rely on validated credentials and mutual authentication.
+<br>Link encryption provides mutual authentication between the previously bonded devices; requiring validated credentials and mutual authentication ensures that only previously bonded devices can re- establish secure communication.</li>
+<li>Encryption shall be enforced for all Bluetooth communications involving Sensitive Data.</li>
+<li>All sensitive Bluetooth GATT services and characteristics (e.g., used to configure the device, transmit credentials, or access personal data) shall require authenticated access. Unpaired or unauthenticated devices shall not be able to read or write Sensitive Data.</li>
+<li>The IoT Product shall only be Bluetooth connectable when necessary.</li>
+<li>Bluetooth connectability shall be limited to specific, justified use cases – such as during initial setup, pairing, or user-initiated configuration modes.
+<br>Permanent connectable advertising is generally discouraged and only permitted if it is clearly justified by the product's intended use and properly documented by the manufacturer. It may be used with justification because some products may – by design – need to always be connectable, and the risks associated with that may be mitigated.
+<br>Non-connectable advertising does not have the same risks and is used in many scenarios, e.g., non-connectable advertising that points to an Auracast stream. Such advertising may need to be permanently on to allow receiver to find and synchronize to the audio stream.</li>
+<li>The IoT Product shall implement a mechanism for pairing mode that ensures that pairing is only active for a limited period based on the requirements of the intended use case.
+<br>Continuous or always-on pairing mode introduces unnecessary exposure and is not acceptable unless explicitly justified and documented.</li>
+</ol>
+
+</section><section id="option-b-application-layer-security"><div class="header-wrapper"><h5 id="x5-2-1-2-option-b-application-layer-security"><bdi class="secno">5.2.1.2 </bdi>Option B: Application-Layer Security</h5><a class="self-link" href="#option-b-application-layer-security" aria-label="Permalink for Section 5.2.1.2"></a></div>
+<p>If the IoT Product relies on Application-Layer Security, the tests in this section (starting in sub-section <em>Test Procedures</em>) may be omitted. However:</p>
+<ol type="A">
+<li>Devices implementing Application-Layer Security in lieu of Bluetooth Security shall implement encrypted application-layer protocols over Bluetooth transport.</li>
+<li>All Sensitive Data transmissions shall be encrypted and authenticated.</li>
+<li>Connection establishment shall include mutual authentication mechanisms.</li>
+<li>Digital signatures or equivalent integrity protection shall be implemented.</li>
+</ol>
+<p>For example, a device implementing Bluetooth 4.0 with Secure Simple Pairing may still achieve secure communication if it establishes a TLS 1.3 session at the application layer after the Bluetooth link is established. In this case, confidentiality, integrity, and authentication are provided by the TLS layer, and the Bluetooth version does not impact the overall communication security posture.</p>
+<p>The requirements and test procedures that follow in this section apply to devices implementing Bluetooth Security as per Option A above.</p>
+
+<p><strong>Required Documentation</strong></p>
+<ul>
+<li>The Bluetooth version, IO capabilities and pairing/bonding modes that are supported by the device.</li>
+<li>The GATT services that can only be accessed by bonded peers.</li>
+<li>A description of how and where Bluetooth keys are stored after bonding.</li>
+<li>The conditions under which keys are deleted.</li>
+<li>Whether keys are stored per device instance or reused across units or sessions.</li>
+<li>Whether mutual authentication is enforced on reconnection.</li>
+</ul>
+</section></section><section id="test-procedures"><div class="header-wrapper"><h4 id="x5-2-2-test-procedures"><bdi class="secno">5.2.2 </bdi>Test Procedures</h4><a class="self-link" href="#test-procedures" aria-label="Permalink for Section 5.2.2"></a></div>
+<section id="bluetooth-implementation"><div class="header-wrapper"><h5 id="x5-2-2-1-bluetooth-implementation"><bdi class="secno">5.2.2.1 </bdi>Bluetooth Implementation</h5><a class="self-link" href="#bluetooth-implementation" aria-label="Permalink for Section 5.2.2.1"></a></div>
+<ul>
+<li>Describe the physical configuration used for Bluetooth. This will include any Bluetooth adapters, communication links, and Bluetooth software executing on the main processor/s.</li>
+<li>Setupthedeviceandconfirmthattheconnectionsasspecifiedaboveare</li>
+<li>Capture the traffic during initial pairing in order to validate versions, authentication and security</li>
+<li>Verify (during product operation) through traffic capturing that data in transit is encrypted.</li>
+</ul>
+<p><strong>Acceptance Criteria</strong></p>
+<p><strong>PASS:</strong></p>
+<p>The requirement shall be considered fulfilled when all of the following conditions are met:</p>
+<ul>
+<li>All required documentation is provided, and complete.</li>
+<li>Device operates using the connection configuration described by the manufacturer.</li>
+<li>Captured pairing traffic confirms an approved Bluetooth version/security mode (LE Secure Connections or BR/EDR Secure Connections).</li>
+<li>Traffic capture confirms data in transit is encrypted during normal operation.</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>Documentation is missing or incomplete.</li>
+<li>Pairing traffic shows use of legacy/non-secure pairing (e.g., LE Legacy Pairing).</li>
+<li>Traffic capture shows unencrypted data during operation.</li>
+</ul>
+</section><section id="bonding-key-persistence-and-reconnection"><div class="header-wrapper"><h5 id="x5-2-2-2-bonding-key-persistence-and-reconnection"><bdi class="secno">5.2.2.2 </bdi>Bonding, Key Persistence and Reconnection</h5><a class="self-link" href="#bonding-key-persistence-and-reconnection" aria-label="Permalink for Section 5.2.2.2"></a></div>
+<p><strong>Test Procedures:</strong></p>
+<p><strong>Step 1: Documentation Review.</strong> Review the provided documentation against the list of "Required Documentation" to ensure that the manufacturer provided everything that is required.</p>
+<p><strong>Step 2: Initial Pairing and Bonding</strong> Pair a test device with the IoT Product and ensure bonding (persistent key storage) is completed. Verify that:</p>
+<ul>
+<li>Attempt to connect to the device using non-supported modes (e.g., no encryption, Just Works, or Bluetooth LE 4.0 Legacy Pairing).</li>
+<li>The connection is established using a secure pairing method as defined in Option A: Bluetooth Security in this section.</li>
+<li>Debug keys defined in the specification are rejected by the device.</li>
+<li>The product retains the bond after a reboot.</li>
+</ul>
+<p><strong>Step 3: Reconnect from the Same Device</strong></p>
+<ul>
+<li>Reconnect to the IoT Product from the same test device used in the bonding step.</li>
+<li>Confirm that the product accepts link encryption without requiring a full re-pairing, indicating successful key storage.</li>
+<li>Verify that the connection is authenticated using the previously exchanged keys.</li>
+</ul>
+<p><strong>Step 4: Attempt Reconnection from a Different (Unbonded) Device</strong></p>
+<ul>
+<li>Attempt to impersonate the previously paired device from a different test device (with a spoofed Bluetooth address, if applicable).</li>
+<li>Try to access previously bonded services without encrypting the link.</li>
+<li>Confirm that:
+<ul>
+<li>The product does not allow access to the services and requests a link encryption.</li>
+<li>A new pairing process or a link encryption using a key saved from an existing bond is required before access is provided.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 5: Evaluate Key Deletion</strong></p>
+<ul>
+<li>If feasible, perform a step such as reprovisioning, factory reset or unpairing on the IoT Product.</li>
+<li>Attempt reconnection from the previously bonded test device.</li>
+<li>Confirm that:
+<ul>
+<li>The product no longer accepts the session without new</li>
+<li>Keys were properly deleted as part of the reset process.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 6: Cross-Check Implementation with Documentation</strong></p>
+<ul>
+<li>Ensure that observed bonding, key persistence, and reconnection behavior:
+<ul>
+<li>Match what is described in the documentation.</li>
+<li>Include verification of appropriate protections for unauthorized reconnections as described in the documentation.</li>
+<li>Do not involve hardcoded, default, or reused keys between different product instances.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Acceptance Criteria</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>All items in “Required Documentation” are provided (Step 1).</li>
+<li>Non-supported modes (no encryption, Just Works when UI/OOB is available, LE 4.0 Legacy Pairing) are rejected (Step 2).</li>
+<li>Connection uses a secure pairing method per Option A (Step 2).</li>
+<li>Debug keys are rejected (Step 2).</li>
+<li>Bond persists after reboot (Step 2).</li>
+<li>Reconnection from the bonded device uses stored keys without full re-pairing and is authenticated (Step 3).</li>
+<li>Unbonded/spoofed device is denied access to bonded services without encryption and must complete new secure pairing (Step 4).</li>
+<li>After reset/unpairing, the previously bonded device can no longer reconnect without new pairing, confirming key deletion (Step 5).</li>
+<li>Observed behavior matches documentation; no hardcoded/default/reused keys across product instances (Step 6).</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>Required documentation is missing or incomplete.</li>
+<li>Device accepts unsupported/insecure pairing modes or debug keys.</li>
+<li>Bond is lost after reboot (unless intentionally documented).</li>
+<li>Reconnection requires full re-pairing when it should not or lacks authentication.</li>
+<li>Unbonded device is granted access without encryption/pairing.</li>
+<li>Old keys still work after reset/unpairing.</li>
+<li>Keys are hardcoded, default, or reused across units.</li>
+<li>Behavior contradicts documentation.</li>
+</ul>
+</section><section id="test-procedures-secure-pairing-method-verification"><div class="header-wrapper"><h5 id="x5-2-2-3-test-procedures-secure-pairing-method-verification"><bdi class="secno">5.2.2.3 </bdi>Test Procedures – Secure Pairing Method Verification</h5><a class="self-link" href="#test-procedures-secure-pairing-method-verification" aria-label="Permalink for Section 5.2.2.3"></a></div>
+<p><strong>Step 1: Identify Bluetooth Type and Pairing Capabilities</strong></p>
+<ul>
+<li>Determine whether the IoT Product supports: Bluetooth Classic, Bluetooth Low Energy (Bluetooth LE), or</li>
+<li>Determine the product's Bluetooth version and pairing roles (central/peripheral, initiator/responder).</li>
+</ul>
+<p><strong>Step 2: Trigger Pairing Process</strong></p>
+<ul>
+<li>Attempt to pair a test device (e.g., smartphone, Bluetooth LE tool) with the IoT Product.</li>
+<li>Observe the pairing method presented:
+<ul>
+<li>Numeric Comparison</li>
+<li>Passkey Entry</li>
+<li>Out-of-Band (OOB)</li>
+<li>Just Works</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 3: Validate Pairing Method Security Level</strong></p>
+<ul>
+<li>For Bluetooth LE:
+<ul>
+<li>Confirm that LE Secure Connections (LESC) is supported and used.</li>
+<li>If Just Works is used, verify: Device has limited or no UI or other means to exchange out of band data.</li>
+<li>Confirm that pairing mode is active only for a limited time or requires user action to initiate.</li>
+</ul>
+</li>
+<li>For BR/EDR (i.e., Bluetooth Classic):
+<ul>
+<li>Confirm that BR/EDR Secure Connections is supported and used.</li>
+<li>If Just Works is used, verify: Device has limited or no UI or other means to exchange out of band data.</li>
+<li>Confirm that pairing mode is active only for a limited time or requires user action to initiate.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 4: Attempt MITM or Unauthorized Pairing (excludes devices using Just Works)</strong></p>
+<ul>
+<li>Try pairing from an unauthorized device without user action on the IoT Product (e.g., automated scan and connect attempt).</li>
+<li>Attempt repeated pairing attempts without proximity or user</li>
+<li>Verify that:
+<ul>
+<li>Device is not connectable, or:</li>
+<li>Pairing is rejected or ignored unless user-initiated; or</li>
+<li>Pairing triggers UI indication (e.g., LED, screen, mobile app confirmation).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 5: Confirm Use of Secure Key Exchange</strong></p>
+<ul>
+<li>If HCI capture or debugging tools are available:
+<ul>
+<li>Observe the key exchange process during pairing.</li>
+<li>Confirm use of Elliptic Curve Diffie-Hellman (ECDH) for LE Secure Connections and BR/EDR Secure Connections.</li>
+</ul>
+</li>
+</ul>
+<p><strong><br> Acceptance Criteria</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>Bluetooth type, version, and pairing roles are correctly identified (Step 1).</li>
+<li>Pairing method observed is one of: Numeric Comparison, Passkey Entry, OOB; or Just Works (Just Works only where justified) (Step 2).</li>
+<li>LE Secure Connections used for Bluetooth LE; BR/EDR Secure Connections used for Classic (Step 3).</li>
+<li>If Just Works is used, device has limited/no UI and no OOB capability (Step 3).</li>
+<li>Pairing mode is time-limited or requires user action (Step 3).</li>
+<li>Unauthorized/automated pairing attempts (excluding Just Works devices) are rejected, ignored, or require user-visible confirmation (Step 4).</li>
+<li>Key exchange uses ECDH (Step 5).</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>Legacy pairing (non-LESC/non-Secure Connections) is used.</li>
+<li>Just Works is used despite adequate UI/OOB capability being present.</li>
+<li>Pairing mode has no timeout and requires no user action.</li>
+<li>Unauthorized/automated pairing succeeds without user action or indication.</li>
+<li>Key exchange does not use ECDH (where verifiable).</li>
+</ul>
+</section><section id="test-procedures-bluetooth-data-encryption-enforcement"><div class="header-wrapper"><h5 id="x5-2-2-4-test-procedures-bluetooth-data-encryption-enforcement"><bdi class="secno">5.2.2.4 </bdi>Test Procedures – Bluetooth Data Encryption Enforcement</h5><a class="self-link" href="#test-procedures-bluetooth-data-encryption-enforcement" aria-label="Permalink for Section 5.2.2.4"></a></div>
+<p><strong>Step 1: Identify Bluetooth Usage and Encryption Approach</strong></p>
+<ul>
+<li>Request documentation from the IoT Product developer describing:
+<ul>
+<li>Whether the product uses Bluetooth Classic, Bluetooth Low Energy (Bluetooth LE), or</li>
+<li>The types of data exchanged over Bluetooth and whether any of it is considered</li>
+<li>The encryption method used (link-layer or application-layer).</li>
+<li>Which Bluetooth services or characteristics are used for Sensitive Data</li>
+</ul>
+</li>
+<li>Confirm from the documentation how the encryption requirement is fulfilled and, if any fallback or exceptions exist, that the encryption requirement is still fulfilled in those cases.</li>
+</ul>
+<p><strong>Step 2: Establish a Bluetooth Connection and Observe Data Flow</strong></p>
+<ul>
+<li>Pair a test device with the IoT Product using the normal pairing procedure.</li>
+<li>Capture and observe Bluetooth communication between the devices after pairing is
+<ul>
+<li>Identify any Sensitive Data exchanges based on the information provided in Step</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 3: Verify Link-Layer Encryption (If Claimed)</strong></p>
+<ul>
+<li>Confirm that the Bluetooth session is encrypted at the link layer (i.e., Option A, via secure pairing).</li>
+<li>Attempt to determine whether any Sensitive Data is transmitted before encryption is established.</li>
+<li>Confirm that link-layer encryption remains active during data exchange.</li>
+</ul>
+<p><strong>Step 4: Verify Application-Layer Encryption (If Claimed)</strong></p>
+<ul>
+<li>If the developer states that application-layer encryption is used (Option B):</li>
+<li>Observe the captured data and verify that Sensitive Data is not transmitted in plaintext.</li>
+<li>Confirm that the structure of the data indicates encryption or obfuscation at the application layer.</li>
+<li>Validate that authentication or encryption protocols are established before Sensitive Data is exchanged.</li>
+</ul>
+<p><strong>Step 5: Attempt Access Without Pairing</strong></p>
+<ul>
+<li>Attempt to connect to the IoT Product from an unpaired</li>
+<li>Attempt to access services or characteristics that handle Sensitive</li>
+<li>Confirm that:
+<ul>
+<li>Access is denied, or</li>
+<li>Data is encrypted or unintelligible without pairing or application-layer keys.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 6: Review Behavior Against Documentation</strong></p>
+<ul>
+<li>Compare the behavior observed during testing with the encryption strategy described by the manufacturer.</li>
+<li>Ensure that encryption is enforced consistently and as documented.</li>
+<li>If application-layer encryption is implemented, ensure that the encryption protocol used is clearly described and appropriate for the data being protected.</li>
+</ul>
+<p><strong><br> Acceptance Criteria</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>Documentation clearly describes data types, sensitivity, and encryption method (link-layer or application-layer) (Step 1).</li>
+<li>No Sensitive Data is transmitted before encryption is established (Step 3).</li>
+<li>Link-layer encryption remains active throughout data exchange, if claimed (Step 3).</li>
+<li>If application-layer encryption is claimed, Sensitive Data is never observed in plaintext, and authentication/encryption is established before Sensitive Data exchange (Step 4).</li>
+<li>Unpaired devices are denied access to Sensitive Data, or data is encrypted/unintelligible without proper keys (Step 5).</li>
+<li>Observed behavior matches documented encryption strategy (Step 6).</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>Sensitive Data is transmitted in plaintext at any point, before or after encryption is established.</li>
+<li>Link-layer or application-layer encryption drops or is inconsistently applied during the session.</li>
+<li>Unpaired devices can access or read Sensitive Data.</li>
+<li>Actual behavior contradicts manufacturer documentation, or fallback/exception cases are not equally protected.</li>
+</ul>
+</section><section id="test-procedures-authenticated-access-to-sensitive-gatt-services"><div class="header-wrapper"><h5 id="x5-2-2-5-test-procedures-authenticated-access-to-sensitive-gatt-services"><bdi class="secno">5.2.2.5 </bdi>Test Procedures – Authenticated Access to Sensitive GATT Services</h5><a class="self-link" href="#test-procedures-authenticated-access-to-sensitive-gatt-services" aria-label="Permalink for Section 5.2.2.5"></a></div>
+<p><strong>Step 1: Request Documentation of Exposed Bluetooth Services</strong></p>
+<ul>
+<li>Ask the IoT Product developer to provide documentation that includes:
+<ul>
+<li>A list of Bluetooth services and characteristics implemented by the device.</li>
+<li>Identification of any services or characteristics used to transmit or receive Sensitive Data, such as:
+<ul>
+<li>Wi‑Fi credentials.</li>
+<li>User or configuration data.</li>
+<li>Personal information.</li>
+<li>Available settings.</li>
+<li>The defined access control policy.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 2: Identify Exposed Services and Characteristics</strong></p>
+<ul>
+<li>Connect to the IoT Product without pairing and attempt to discover available Bluetooth services and characteristics.</li>
+<li>Record which services and characteristics are visible before pairing.</li>
+<li>Compare these to the services identified in the documentation.</li>
+</ul>
+<p><strong>Step 3: Attempt Unauthorized Access to Sensitive Characteristics</strong></p>
+<ul>
+<li>Without pairing or authenticating:
+<ul>
+<li>Attempt to read or write to any characteristic identified as sensitive.</li>
+<li>Attempt access to general-purpose characteristics to determine whether access control is uniformly applied.</li>
+<li>Confirm whether these operations are rejected, ignored, or return unintelligible results.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 4: Pair and Re-Test Access</strong></p>
+<ul>
+<li>Complete pairing with the device using a valid test client.</li>
+<li>Attempt to access the same characteristics post-pairing.</li>
+<li>Confirm that:
+<ul>
+<li>Sensitive characteristics are now accessible, assuming proper authorization.</li>
+<li>The access behavior changes appropriately between unpaired and paired</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 5: Evaluate Access Control Consistency</strong></p>
+<ul>
+<li>Attempt to connect from a second, unauthorized device while one device is already paired.</li>
+<li>Attempt to read or write data simultaneously or spoof the paired device.</li>
+<li>Confirm that only the authenticated and authorized device has access to the sensitive characteristics.</li>
+</ul>
+<p><strong>Step 6: Compare Implementation with Documentation</strong></p>
+<ul>
+<li>Review whether the access control behavior observed during testing:</li>
+<li>Matches the product documentation.</li>
+<li>Properly protects all sensitive characteristics with authentication.</li>
+<li>Note any discrepancies, such as undocumented services or missing protection.</li>
+</ul>
+<p><strong><br> Acceptance Criteria</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>Documentation lists all services, identifies which carry Sensitive Data, and defines access control policy (Step 1).</li>
+<li>Pre-pairing service discovery matches documentation (Step 2).</li>
+<li>Unauthenticated read/write attempts on sensitive characteristics are rejected, ignored, or return unintelligible data (Step 3).</li>
+<li>Access control is applied uniformly, not just to some sensitive characteristics.</li>
+<li>After valid pairing, sensitive characteristics become accessible appropriately (Step 4).</li>
+<li>Only the authenticated/authorized device retains access when a second unauthorized device attempts simultaneous access or impersonation (Step 5).</li>
+<li>Observed access control matches documentation, with no undocumented services or gaps (Step 6).</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>Sensitive characteristics are readable/writable without pairing/authentication.</li>
+<li>Access control is inconsistently applied across characteristics.</li>
+<li>A second/unauthorized device can access sensitive data while another device is paired, or impersonation succeeds.</li>
+<li>Undocumented services exist, or documented protections are not actually implemented.</li>
+</ul>
+</section><section id="test-procedures-controlled-bluetooth-discoverability-and-connectability"><div class="header-wrapper"><h5 id="x5-2-2-6-test-procedures-controlled-bluetooth-discoverability-and-connectability"><bdi class="secno">5.2.2.6 </bdi>Test Procedures – Controlled Bluetooth Discoverability and Connectability</h5><a class="self-link" href="#test-procedures-controlled-bluetooth-discoverability-and-connectability" aria-label="Permalink for Section 5.2.2.6"></a></div>
+<p><strong>Step 1: Request Documentation of Advertising and Discoverability Behavior</strong></p>
+<ul>
+<li>Ask the developer to provide documentation describing:
+<ul>
+<li>When the IoT Product advertises its Bluetooth presence.</li>
+<li>What triggers the device to enter advertising or discoverable mode.</li>
+<li>Whether advertising is time-limited or persistent.</li>
+<li>Justification for continuous connectable advertising, if applicable (e.g., always-on proximity beacon).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 2: Power On the Device in Default State</strong></p>
+<ul>
+<li>Power on or reset the IoT Product to its factory or initial state.</li>
+<li>Without user interaction, determine whether the device advertises or is discoverable.</li>
+<li>Record:
+<ul>
+<li>If and when advertising starts.</li>
+<li>Whether this aligns with documentation.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 3: Attempt to Discover the Device</strong></p>
+<ul>
+<li>From an unpaired test device, scan for Bluetooth devices nearby.</li>
+<li>Note whether the IoT Product:
+<ul>
+<li>Appears in the list of available devices.</li>
+<li>Advertises a custom or default name (e.g., "Setup_Device_123").</li>
+</ul>
+</li>
+<li>Repeat the discovery attempt under the following conditions:
+<ul>
+<li>Immediately after power-on.</li>
+<li>After onboarding is completed.</li>
+<li>After a timeout period.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 4: Trigger User-Initiated Pairing Mode (if applicable)</strong></p>
+<ul>
+<li>If the device requires user action to enter pairing/advertising mode:
+<ul>
+<li>Follow the documented procedure.</li>
+<li>Confirm that the device enters advertising mode only after this action.</li>
+<li>Observe whether the advertising stops automatically after a defined period.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 5: Observe Advertising Behavior Over Time</strong></p>
+<ul>
+<li>Leave the device powered on without user interaction.</li>
+<li>Periodically attempt to detect advertising packets or discoverable presence.</li>
+<li>Confirm whether:
+<ul>
+<li>The device automatically exits advertising mode after</li>
+<li>Continuous connectable advertising is disabled unless</li>
+</ul>
+</li>
+</ul>
+<p><strong><br> Acceptance Criteria</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>Documentation describes advertising triggers, duration, and justification for any persistent connectable advertising (Step 1).</li>
+<li>Default power-on state matches documented advertising behavior (Step 2).</li>
+<li>Discovery results (device appears/disappears, naming) align with documented timing across power-on, post-onboarding, and timeout states (Step 3).</li>
+<li>Device enters advertising/pairing mode only via documented user action, if applicable, and stops automatically afterward (Step 4).</li>
+<li>Continuous connectable advertising is either absent or clearly justified/documented; device exits advertising mode after setup when not justified (Step 5).</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>Device advertises/connects persistently without documented justification.</li>
+<li>Advertising behavior doesn't match documentation (e.g., always discoverable when documentation says otherwise).</li>
+<li>Advertising doesn't stop automatically when it's supposed to (e.g., after setup or timeout).</li>
+</ul>
+</section><section id="test-procedures-pairing-mode-timeout-implementation"><div class="header-wrapper"><h5 id="x5-2-2-7-test-procedures-pairing-mode-timeout-implementation"><bdi class="secno">5.2.2.7 </bdi>Test Procedures – Pairing Mode Timeout Implementation</h5><a class="self-link" href="#test-procedures-pairing-mode-timeout-implementation" aria-label="Permalink for Section 5.2.2.7"></a></div>
+<p><strong>Step 1: Request Documentation of Pairing Behavior</strong></p>
+<ul>
+<li>Ask the product developer to provide:
+<ul>
+<li>The conditions under which pairing mode is enabled.</li>
+<li>The configured timeout duration</li>
+<li>Whether user interaction is required to enter pairing mode.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 2: Trigger Pairing Mode</strong></p>
+<ul>
+<li>Activate the device or reset it to its factory state.</li>
+<li>If pairing is user-initiated, follow the documented procedure to enable it.</li>
+<li>Confirm that pairing mode is active (e.g., via Bluetooth discoverability or connection availability).</li>
+</ul>
+<p><strong>Step 3: Do Not Complete Pairing</strong></p>
+<ul>
+<li>Allow the device to remain in pairing mode without completing the pairing process.</li>
+<li>Observe the duration of pairing mode availability.</li>
+<li>Record how long the device remains discoverable or available for connection.</li>
+</ul>
+<p><strong>Step 4: Verify Automatic Timeout Behavior</strong></p>
+<ul>
+<li>Confirm whether the product:
+<ul>
+<li>Exits pairing mode after the documented timeout period.</li>
+<li>Stops advertising or becomes non-connectable.</li>
+<li>Requires reactivation by the user to enter pairing mode again.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Step 5: Attempt Reconnection After Timeout</strong></p>
+<ul>
+<li>After the expected timeout:
+<ul>
+<li>Attempt to pair from an external device again.</li>
+<li>Confirm that pairing is rejected or the device is no longer connectable.</li>
+</ul>
+</li>
+</ul>
+<p><strong><br> Acceptance Criteria</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>Documentation specifies pairing activation conditions and timeout duration (Step 1).</li>
+<li>Pairing mode activates as documented (Step 2).</li>
+<li>Device remains in pairing mode only for the documented duration before timing out (Steps 3-4).</li>
+<li>After timeout, device exits pairing mode, stops advertising/becomes non-connectable, and requires user reactivation (Step 4).</li>
+<li>Post-timeout pairing attempts are rejected / device is no longer connectable (Step 5).</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>Pairing mode remains active indefinitely (no timeout) without documented justification.</li>
+<li>Device continues to be connectable and to accept pairing attempts after the documented timeout period.</li>
+<li>Reactivation is not required to re-enter pairing mode.</li>
+</ul>
+</section></section><section id="mesh-devices"><div class="header-wrapper"><h4 id="x5-2-3-mesh-devices"><bdi class="secno">5.2.3 </bdi>Mesh Devices</h4><a class="self-link" href="#mesh-devices" aria-label="Permalink for Section 5.2.3"></a></div>
+<p>Because Bluetooth Mesh Devices have mandatory security required by the Mesh Protocol specification, there are no additional requirements or test procedures for Mesh Devices on top of the Bluetooth Mesh Protocol specification. The provisioning methods defined in the Mesh Protocol version 1.1 or later should be supported.</p>
+</section><section id="informative-best-practices"><div class="header-wrapper"><h4 id="x5-2-4-informative-best-practices"><bdi class="secno">5.2.4 </bdi>Informative Best Practices</h4><a class="self-link" href="#informative-best-practices" aria-label="Permalink for Section 5.2.4"></a></div>
+<p>The Bluetooth Special Interest Group maintains a Best Practices document here: <a href="https://www.bluetooth.com/bluetooth-resources/bluetooth-security-and-privacy-best-practices-guide/">https://www.bluetooth.com/bluetooth-resources/bluetooth-security-and-privacy-best-practices-guide/</a>.</p>
+</section></section><section id="lora-and-lorawan"><div class="header-wrapper"><h3 id="x5-3-lora-and-lorawan"><bdi class="secno">5.3 </bdi>LoRa and LoRaWAN</h3><a class="self-link" href="#lora-and-lorawan" aria-label="Permalink for Section 5.3"></a></div>
+<p>This section applies to IoT Products that implement wireless network communications using the LoRa radio communication technology and the LoRaWAN 1.0.4 protocol. Like other spread-spectrum technologies, there is a certain amount of communications secrecy because of the RF receiver parameters; options include bandwidth, spreading factor, coding rate, and carrier frequency. This native secrecy is not generally considered cybersecurity, or at least not by itself. Cybersecurity for LoRa devices is provided via LoRaWAN.</p>
+<p>LoRaWAN networks are typically laid out in a star-of-stars topology in which gateways relay transmissions between end-devices and a central Network Server at the backend. Gateways are connected to a Network Server via standard IP connections, whereas end-devices use single-hop radio-frequency (RF) communication to one or many gateways. The Network Server then communicates with an Application Server, providing end-to-end encryption between an end-device and its corresponding Application Server.</p>
+<p>LoRaWAN is the logical layer used with the LoRa physical layer. LoRaWAN includes robust security features including end-to-end encryption and integrity protection. Like all such protocols, care must be taken in implementing and configuring these features. This section discusses important LoRaWAN considerations for cybersecurity and sets requirements for compliance within this program.</p>
+<p>Note: This section specifically applies to LoRaWAN end-devices and does not apply to Gateways and Network Servers that are considered to be part of the LoRaWAN infrastructure and thus not consumer devices.</p>
+<section id="requirements-0"><div class="header-wrapper"><h4 id="x5-3-1-requirements"><bdi class="secno">5.3.1 </bdi>Requirements</h4><a class="self-link" href="#requirements-0" aria-label="Permalink for Section 5.3.1"></a></div>
+<ol type="A">
+<li>LoRaWAN end-devices shall implement Over-The-Air Activation (OTAA) to establish session keys NwkSKey and AppSKey as described in Section 6.2 of the “TS001-1.0.4 LoRaWAN® L2 1.0.4 Specification” (hereafter “TS001”) document</li>
+<li>A LoRaWAN end-device shall be <a href="https://lora-alliance.org/lorawan-certification/">LoRaWAN Certified</a>.</li>
+</ol>
+<p>LoRaWAN certification ensures that the requirements stated in this section are met. Compliant products are issued with a Certificate of Compliance that can be used to indicate compliance during assessment.</p>
+<p>Achieving LoRaWAN Certified status ensures that developers have observed the mandatory requirements for complying with the best practices identified in sections 3.1, 3.4, 4.6, 4.11, 4.12, 4.13 and 5 of the “TR007-Developing LoRaWAN® Devices V1.1.0” (hereafter “TR007”) document. [<a href="https://resources.lora-alliance.org/document/tr007-developing-lorawan-devices-v1-1-0">https://resources.lora-alliance.org/document/tr007-developing-lorawan-devices-v1-1-0</a>]</p>
+<p>As a consequence of the mandatory security practices required in achieving LoRaWAN Certified status, this standard specifies no additional technology specific testing requirements or test procedures for a LoRaWAN Certified IoT Product that implements OTAA as described above.</p>
+</section><section id="informative-best-practices-0"><div class="header-wrapper"><h4 id="x5-3-2-informative-best-practices"><bdi class="secno">5.3.2 </bdi>Informative Best Practices</h4><a class="self-link" href="#informative-best-practices-0" aria-label="Permalink for Section 5.3.2"></a></div>
+<p>In addition, developers should observe the full suite of best practices identified in TR007.</p>
+</section><section id="test-procedure"><div class="header-wrapper"><h4 id="x5-3-3-test-procedure"><bdi class="secno">5.3.3 </bdi>Test Procedure</h4><a class="self-link" href="#test-procedure" aria-label="Permalink for Section 5.3.3"></a></div>
+<p><strong>Step 1: Documentation Review</strong></p>
+<ul>
+<li>Review the product’s LoRaWAN Certified status or request the device's LoRaWAN Certificate of Compliance.</li>
+<li>Confirm the Certified status is valid, current, and matches the specific product/model under test.</li>
+</ul>
+<p><strong>Step 2: Confirm Activation Method</strong></p>
+<ul>
+<li>Request/verify documentation or configuration showing OTAA is used (not ABP).</li>
+<li>Confirm session key derivation aligns with TS001 Section 6.2.</li>
+</ul>
+<p><strong>Acceptance Criteria</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>The device holds LoRaWAN Certified status, evidenced by being listed in the LoRa Alliance Marketplace search database using the “Certified Products Only” filter option (<a href="https://lora-alliance.org/marketplace/search/?mp_certified=1">https://lora-alliance.org/marketplace/search/?mp_certified=1</a>).</li>
+<li>Documentation specifies pairing activation conditions and timeout duration (Step 1).</li>
+<li>The end-device implements Over-The-Air Activation (OTAA) to establish session keys (NwkSKey and AppSKey) as described in Section 6.2 of TS001-1.0.4 (LoRaWAN L2 1.0.4 Specification). This can be confirmed by checking the LoRaWAN Web Certification System for the end-device, which confirms OTAA compliance and the OTAA test results.</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>The device is not LoRaWAN Certified.</li>
+<li>The device uses Activation By Personalization (ABP) instead of OTAA.</li>
+</ul>
+<p>Note: LoRaWAN Gateways and Network Servers are explicitly out of scope for this section – only LoRaWAN end-devices are assessed against these requirements.</p>
+</section></section><section id="matter"><div class="header-wrapper"><h3 id="x5-4-matter"><bdi class="secno">5.4 </bdi>Matter</h3><a class="self-link" href="#matter" aria-label="Permalink for Section 5.4"></a></div>
+<p>Matter is a secure, open-source, IP-based communication protocol developed by the Connectivity Standards Alliance (CSA) for smart home and IoT interoperability. The protocol is built around strong security primitives, including mutual authentication, message encryption, access control, and secure commissioning, all designed to be robust by default.</p>
+<p>A product that has received Matter Certification from the CSA is considered to have inherent compliance with the following general requirements based on its default protocol behavior:</p>
+<ul>
+<li>Secure Data Transmission: Matter mandates encrypted communication using well- established cryptographic standards such as TLS 1.3, AES-CCM, and SPAKE2+.</li>
+<li>Secure Interface Access: Devices only expose required network interfaces and enforce access control via Access Control Lists (ACLs) and fabric-scoped communication.</li>
+</ul>
+<p>Note: If an IoT Product supports Matter and additional manufacturer-specific implementations (e.g., custom mobile applications, cloud APIs, Bluetooth LE fallback modes), those non-Matter components shall be evaluated separately using general requirements. A device that securely implements Matter may still fail overall evaluation if other components bypass or weaken protections.</p>
+<section id="secure-data-storage"><div class="header-wrapper"><h4 id="x5-4-1-secure-data-storage"><bdi class="secno">5.4.1 </bdi>Secure Data Storage</h4><a class="self-link" href="#secure-data-storage" aria-label="Permalink for Section 5.4.1"></a></div>
+<ul>
+<li><strong>Status</strong>: <em>Not directly</em> applicable to Matter specification</li>
+<li><strong>Rationale:</strong> Secure data storage is device-specific and not covered by the Matter specification itself. Vendors shall implement their own secure storage mechanisms.</li>
+</ul>
+</section><section id="secure-data-transmission"><div class="header-wrapper"><h4 id="x5-4-2-secure-data-transmission"><bdi class="secno">5.4.2 </bdi>Secure Data Transmission</h4><a class="self-link" href="#secure-data-transmission" aria-label="Permalink for Section 5.4.2"></a></div>
+<p>Matter mandates:</p>
+<ul>
+<li>Mandatory use of TLS v1.2 or DTLS v1.2 (or newer versions) depending on transport protocol.</li>
+<li>Mandatory encryption of all communication between devices and controllers using AES-CCM with keys derived via PAKE (i.e., SPAKE2+) or SIGMA with ECC NISTp256.</li>
+<li>Secure onboarding using QR codes and passcodes, ensuring authentication and encryption from first contact.</li>
+<li>Access Control Lists (ACLs) govern device behavior and protect unauthorized reads/writes.</li>
+</ul>
+<p>Thus:</p>
+<ul>
+<li>All Sensitive Data in transit is protected using industry best practice</li>
+</ul>
+</section><section id="secure-interface-access"><div class="header-wrapper"><h4 id="x5-4-3-secure-interface-access"><bdi class="secno">5.4.3 </bdi>Secure Interface Access</h4><a class="self-link" href="#secure-interface-access" aria-label="Permalink for Section 5.4.3"></a></div>
+<ul>
+<li>Matter devices expose only necessary logical interfaces and utilize:
+<ul>
+<li>Device attestation certificates and commissioning procedures to control who can communicate.</li>
+<li>ACLs for enforcing least privilege across device clusters and attributes.</li>
+<li>Anti brute-force</li>
+</ul>
+</li>
+<li>Commissioning over Bluetooth LE or SoftAP is protected via secure channel establishment</li>
+</ul>
+</section></section><section id="embedded-4g-5g"><div class="header-wrapper"><h3 id="x5-5-embedded-4g-5g"><bdi class="secno">5.5 </bdi>Embedded 4G/5G</h3><a class="self-link" href="#embedded-4g-5g" aria-label="Permalink for Section 5.5"></a></div>
+<section id="requirements-1"><div class="header-wrapper"><h4 id="x5-5-1-requirements"><bdi class="secno">5.5.1 </bdi>Requirements</h4><a class="self-link" href="#requirements-1" aria-label="Permalink for Section 5.5.1"></a></div>
+<p>3GPP standards and requirements generally supply link-layer protections that work in conjunction with application-layer security such as TLS. Due to the robust protections developed for mobile communications, this section does not have specific additional requirements.</p>
+</section><section id="informative-best-practices-1"><div class="header-wrapper"><h4 id="x5-5-2-informative-best-practices"><bdi class="secno">5.5.2 </bdi>Informative best practices</h4><a class="self-link" href="#informative-best-practices-1" aria-label="Permalink for Section 5.5.2"></a></div>
+<p>If the device hardware uses a physical SIM card, it is potentially susceptible to SIM-swapping attacks provided the attacker has physical access to the hardware. Physical access is assumed to be granted only to Authorized Entities. Consideration may be given to physical access controls including use of fasteners that require special tools.</p>
+</section><section id="detailed-test-procedures"><div class="header-wrapper"><h4 id="x5-5-3-detailed-test-procedures"><bdi class="secno">5.5.3 </bdi>Detailed Test Procedures</h4><a class="self-link" href="#detailed-test-procedures" aria-label="Permalink for Section 5.5.3"></a></div>
+<p>The existing general requirements detailed in the above sections already adequately cover security needs without requiring special provisions for physical or data link layers specific to cellular technologies.</p>
+<p>Key security requirements including Secure Data Storage and Secure Interface Access are not addressed by 4G/5G protocols and must be evaluated independently of the transport technology as required in above sections.</p>
+</section></section><section id="near-field-communication-nfc"><div class="header-wrapper"><h3 id="x5-6-near-field-communication-nfc"><bdi class="secno">5.6 </bdi>Near Field Communication (NFC)</h3><a class="self-link" href="#near-field-communication-nfc" aria-label="Permalink for Section 5.6"></a></div>
+<section id="nfc"><div class="header-wrapper"><h4 id="x5-6-1-nfc"><bdi class="secno">5.6.1 </bdi>NFC</h4><a class="self-link" href="#nfc" aria-label="Permalink for Section 5.6.1"></a></div>
+<p>This section applies to IoT Products implementing Near Field Communications (NFC) according to NFC Forum specifications and associated ISO/IEC 14443 Type A or Type B, ISO/IEC 15693 Type V, ISO/IEC 18092 Type F.</p>
+<p>Near Field Communication (NFC) is a short-range wireless technology designed to operate at close physical proximity and typically initiated through deliberate user interaction. These characteristics can reduce exposure to unintended remote interactions and provide user awareness of communication establishment. NFC technology itself provides communication transport functionality and interoperability between NFC devices. It does not inherently provide Secure Data Transmission, application-layer authentication, authorization, credential management, or access control functions.</p>
+<p>Security-sensitive applications using NFC should implement additional security mechanisms through higher-layer protocols, Secure Elements, trusted execution environments, cloud services, or application-specific security architectures where appropriate.</p>
+<p>NFC Forum develops and maintains NFC technical specifications and operates certification programs based on approved test cases, validated test tools, and Authorized Test Laboratories to support interoperable and standards-compliant NFC implementations. NFC Forum also publishes the NFC Authentication Protocol (NAP), which provides mechanisms for bonding, mutual authentication, and secure channel establishment for NFC Forum devices.</p>
+</section><section id="requirements-2"><div class="header-wrapper"><h4 id="x5-6-2-requirements"><bdi class="secno">5.6.2 </bdi>Requirements</h4><a class="self-link" href="#requirements-2" aria-label="Permalink for Section 5.6.2"></a></div>
+<p>Products implementing NFC should conform to applicable NFC Forum specifications and certification requirements.</p>
+<p>NFC technology does not define secure data transmission, application-layer authentication, authorization, credential management, or access control functions. Where such protections are required, they shall be provided by the application, protocol, Secure Element, or system component implementing the corresponding security function.</p>
+<p>Security requirements associated with:</p>
+<ul>
+<li>authentication,</li>
+<li>credential transport,</li>
+<li>onboarding,</li>
+<li>payment,</li>
+<li>access control,</li>
+<li>digital key,</li>
+<li>product registration,</li>
+<li>secure commissioning,</li>
+</ul>
+<p>...should be evaluated according to the security mechanisms implemented by the corresponding application or protocol and are outside the scope of NFC transport technology layer.</p>
+<p>Products implementing NFC should conform to applicable NFC Forum protocol and interoperability requirements associated with the NFC technologies and operating modes supported by the product.</p>
+<section id="network-interface-data-protection-requirements"><div class="header-wrapper"><h5 id="x5-6-2-1-network-interface-data-protection-requirements"><bdi class="secno">5.6.2.1 </bdi>Network Interface Data Protection Requirements</h5><a class="self-link" href="#network-interface-data-protection-requirements" aria-label="Permalink for Section 5.6.2.1"></a></div>
+<p>Products implementing NFC should conform to applicable NFC Forum specifications defining:</p>
+<ul>
+<li>protocol behavior,</li>
+<li>message formatting,</li>
+<li>protocol compliance,</li>
+<li>interoperability requirements,</li>
+<li>RF communication requirements,</li>
+</ul>
+<p>...for the NFC technologies and operating modes implemented by the product.</p>
+<p><strong>Testing Procedures</strong></p>
+<p>A product that has successfully completed the applicable NFC Forum Certification program is considered compliant with the requirements of this section.</p>
+<p>Products that are not NFC Forum Certified shall provide evidence of successful execution of the applicable NFC Forum conformance tests associated with the NFC technologies and operating modes implemented by the product. Evidence may be derived from:</p>
+<ul>
+<li>Approved NFC Forum test cases,</li>
+<li>Validated NFC Forum test tools,</li>
+<li>Authorized Test Laboratories,</li>
+<li>Other documented conformance assessment programs demonstrating compliance with the applicable NFC Forum specifications and interoperability requirements.</li>
+</ul>
+<p><strong>Informative Best Practices</strong></p>
+<p>Developers should follow applicable NFC Forum specifications and implementation guidance for the NFC technologies and operating modes used in their products.</p>
+<p>Certain NFC applications, including payment, access control, transit, and digital key systems, may require additional protections against replay attacks, credential theft, or other application-specific threats. Relay-attack mitigations may also be required for some deployment scenarios; however, such mitigations are application-specific and are outside the scope of NFC transport technology. The NFC Forum does not currently recommend normative relay-attack requirements within this document.</p>
+</section></section></section><section id="thread"><div class="header-wrapper"><h3 id="x5-7-thread"><bdi class="secno">5.7 </bdi>Thread</h3><a class="self-link" href="#thread" aria-label="Permalink for Section 5.7"></a></div>
+<p>Thread is an IPv6-based, low-power mesh networking protocol designed for secure, reliable device-to-device communication in IoT environments. It underpins many smart home ecosystems, including Matter, and mandates link-layer and network-layer security.</p>
+<p>A product that has received Thread Certification from the Thread Group is considered to have inherent compliance with the following general requirements based on its default protocol behavior:</p>
+<ul>
+<li><strong>Secure Data Transmission</strong>: Thread mandates encryption and integrity protection for all mesh traffic using AES-CCM* at both the MAC and MLE layers, with keys derived from the Thread Network Key.</li>
+<li><strong>Secure Interface Access</strong>: Devices only join the network through a secure commissioning process (DTLS-based or out-of-band), and routing/diagnostic interfaces are protected.</li>
+<li><strong>Network Interface Data Protection</strong>: All packets are validated at the protocol level (MAC and MLE layers), and malformed, replayed, or unauthorized traffic is discarded.</li>
+</ul>
+<section id="secure-data-transmission-0"><div class="header-wrapper"><h4 id="x5-7-1-secure-data-transmission"><bdi class="secno">5.7.1 </bdi>Secure Data Transmission</h4><a class="self-link" href="#secure-data-transmission-0" aria-label="Permalink for Section 5.7.1"></a></div>
+<p>Thread mandates:</p>
+<ul>
+<li>Key Derivation: Cryptographic derivation of separate keys for MAC (link-layer) and MLE (mesh link establishment) security from the Thread Network Key using HMAC-SHA256.</li>
+<li>Link-Layer Security: Mandatory encryption and integrity protection of MAC data and command frames using AES-CCM* (IEEE 802.15.4). Note: Unsecured MAC frames are accepted exclusively for pre-commissioning and network discovery traffic (e.g., MLE Discovery Request/Response) and cannot transmit application data or access network services.</li>
+<li>Key Rotation: Monotonically increasing Key Sequence Counter to manage key rotation and switching across the network.</li>
+<li>Cryptographic Freshness (Nonce Uniqueness): Use of monotonically increasing frame counters at both MAC and MLE layers to ensure every transmitted frame uses a unique nonce for AES-CCM* encryption, preventing keystream reuse.</li>
+<li>Mesh Link Establishment Security: Mandatory security for MLE messages (except discovery) using AES-CCM* (ENC-MIC-32) with Key ID Mode 2 to carry the sender's key sequence counter (Key Source), enabling secure synchronization of network key state across neighbors.</li>
+</ul>
+<p>Thus:</p>
+<ul>
+<li>All mesh traffic is encrypted and authenticated.</li>
+</ul>
+</section><section id="secure-interface-access-0"><div class="header-wrapper"><h4 id="x5-7-2-secure-interface-access"><bdi class="secno">5.7.2 </bdi>Secure Interface Access</h4><a class="self-link" href="#secure-interface-access-0" aria-label="Permalink for Section 5.7.2"></a></div>
+<p>Thread devices expose only necessary interfaces and enforce:</p>
+<ul>
+<li>Secure Commissioning:
+<ul>
+<li>In-Band Commissioning: Mandates the use of DTLS (e.g., DTLS-ECJPAKE) with a Pre-Shared Key (PSKc/PSKd) to establish a secure session and perform mutual authentication before network credentials are exchanged.</li>
+<li>Out-of-Band (OOB) Commissioning: If an alternate link layer (e.g., BLE, NFC, USB) or protocol is used for commissioning, the implementation must adhere to the Thread Out-of-Band Commissioning Guidelines. OOB commissioning sessions must provide equivalent security, including 128-bit or higher symmetric encryption, bidirectional authentication, message integrity, forward secrecy, and secure key handling/storage.</li>
+</ul>
+</li>
+<li>Joiner Protection: Use of Key ID Mode 0 and a temporary pairwise Key Encryption Key (KEK) for secure distribution of network credentials to joining devices (Joiner Entrust).</li>
+<li>Diagnostic Port Protection: Routing and diagnostic interfaces are protected with the same cryptographic layers as data traffic.</li>
+</ul>
+</section><section id="network-interface-data-protection"><div class="header-wrapper"><h4 id="x5-7-3-network-interface-data-protection"><bdi class="secno">5.7.3 </bdi>Network Interface Data Protection</h4><a class="self-link" href="#network-interface-data-protection" aria-label="Permalink for Section 5.7.3"></a></div>
+<p>Thread devices validate all incoming traffic at the protocol level before it is passed to upper layers:</p>
+<ul>
+<li>Frame Integrity Validation: MAC and MLE frames are authenticated using AES-CCM* (ENC-MIC-32), and frames that fail authentication are discarded without further processing.</li>
+<li>Replay Protection: Use of monotonically increasing frame counters at both MAC and MLE layers, maintained per neighbor and per key. Packets with duplicate or out-of-order counters are discarded before reaching upper layers.</li>
+<li>Key Validation and unauthorized traffic protection: Frames secured with mismatched key indices are discarded. Frames that fail decryption or integrity checks are dropped, providing baseline protection against injected or malformed traffic.</li>
+</ul>
+<p>Thus:</p>
+<ul>
+<li>Only frames that pass MAC/MLE integrity and freshness checks are processed further.</li>
+<li>Replay attacks are mitigated at the network and link layers.</li>
+</ul>
+</section></section><section id="transport-layer-security-tls"><div class="header-wrapper"><h3 id="x5-8-transport-layer-security-tls"><bdi class="secno">5.8 </bdi>Transport Layer Security (TLS)</h3><a class="self-link" href="#transport-layer-security-tls" aria-label="Permalink for Section 5.8"></a></div>
+<section id="requirements-3"><div class="header-wrapper"><h4 id="x5-8-1-requirements"><bdi class="secno">5.8.1 </bdi>Requirements</h4><a class="self-link" href="#requirements-3" aria-label="Permalink for Section 5.8.1"></a></div>
+<p>The TLS implementation shall comply with requirements of RFC 8996, <a href="https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml">Transport Layer Security (TLS) Parameters.</a></p>
+</section><section id="tls-security-requirements-test-procedures"><div class="header-wrapper"><h4 id="x5-8-2-tls-security-requirements-test-procedures"><bdi class="secno">5.8.2 </bdi>TLS Security Requirements &amp; Test Procedures</h4><a class="self-link" href="#tls-security-requirements-test-procedures" aria-label="Permalink for Section 5.8.2"></a></div>
+<section id="secure-data-transmission-1"><div class="header-wrapper"><h5 id="x5-8-2-1-secure-data-transmission"><bdi class="secno">5.8.2.1 </bdi>Secure Data Transmission</h5><a class="self-link" href="#secure-data-transmission-1" aria-label="Permalink for Section 5.8.2.1"></a></div>
+<p><strong>TLS Implementation: </strong>Where IoT Product components initiate or accept a TLS connection, involved servers under the manufacturer’s control shall negotiate only permitted TLS versions v1.<strong>2</strong> or greater.</p>
+</section><section id="use-of-secure-tls-versions"><div class="header-wrapper"><h5 id="x5-8-2-2-use-of-secure-tls-versions"><bdi class="secno">5.8.2.2 </bdi>Use of Secure TLS Versions</h5><a class="self-link" href="#use-of-secure-tls-versions" aria-label="Permalink for Section 5.8.2.2"></a></div>
+<ul>
+<li>The system shall offer the highest supported TLS version by default, following a downward negotiation strategy (i.e., TLS 1.3 first, then TLS 1.2).</li>
+<li>Deprecated versions shall be disabled as per [1].</li>
+</ul>
+</section><section id="cipher-suite-security"><div class="header-wrapper"><h5 id="x5-8-2-3-cipher-suite-security"><bdi class="secno">5.8.2.3 </bdi>Cipher Suite Security</h5><a class="self-link" href="#cipher-suite-security" aria-label="Permalink for Section 5.8.2.3"></a></div>
+<ul>
+<li>Only strong, non-obsolete cipher suites shall be used, conforming to industry best practices (e.g., NIST, OWASP, IETF).</li>
+<li>Obsolete cipher suites shall not be supported, including those identified as “D” in IANA Transport Layer Security (TLS) Parameters (<a href="https://www.iana.org/assignments/tls-parameters#tls-parameters-4)">https://www.iana.org/assignments/tls-parameters#tls-parameters-4)</a>. Note that those identified as “N” are not recommended.</li>
+</ul>
+</section><section id="tls-01-04-certificate-and-key-management"><div class="header-wrapper"><h5 id="x5-8-2-4-tls-01-04-certificate-and-key-management"><bdi class="secno">5.8.2.4 </bdi>[TLS-01.04] Certificate and Key Management</h5><a class="self-link" href="#tls-01-04-certificate-and-key-management" aria-label="Permalink for Section 5.8.2.4"></a></div>
+<ul>
+<li>Only compliant certificates shall be accepted that meet the certificate authority requirements, peer identities, validity requirements, and applicable usage, including:
+<ul>
+<li>RSA certificates with a minimum of 2048 bits.</li>
+<li>ECC certificates with a minimum of 256 bits.</li>
+<li>EdDSA-based certificates (e.g., Ed25519, Ed448).</li>
+</ul>
+</li>
+<li>SHA-1 certificates shall not be trusted.</li>
+<li>Certificate revocation shall be properly enforced using Online Certificate Status Protocol (OCSP) or Certificate Revocation Lists (CRLs).</li>
+</ul>
+</section><section id="tls-01-05-strict-transport-security-hsts"><div class="header-wrapper"><h5 id="x5-8-2-5-tls-01-05-strict-transport-security-hsts"><bdi class="secno">5.8.2.5 </bdi>[TLS-01.05] Strict Transport Security (HSTS)</h5><a class="self-link" href="#tls-01-05-strict-transport-security-hsts" aria-label="Permalink for Section 5.8.2.5"></a></div>
+<ul>
+<li>HTTP Strict Transport Security (HSTS) shall be enforced for web-based browser-accessible TLS implementations.</li>
+</ul>
+</section><section id="tls-01-06-tls-handshake-best-practices"><div class="header-wrapper"><h5 id="x5-8-2-6-tls-01-06-tls-handshake-best-practices"><bdi class="secno">5.8.2.6 </bdi>[TLS-01.06] TLS Handshake Best Practices</h5><a class="self-link" href="#tls-01-06-tls-handshake-best-practices" aria-label="Permalink for Section 5.8.2.6"></a></div>
+<ul>
+<li>Mutual authentication shall be enforced where applicable.</li>
+<li>(For TLS 1.3) Session resumption should preserve the security properties of the connection. The use of 0-RTT early data should be disabled by default. If enabled, it should be restricted to explicitly approved operations and include application-appropriate replay protection.</li>
+<li>(For TLS 1.2) Session tickets or session IDs with secure storage and expiration policies.</li>
+<li>Weak or deprecated handshakes shall not be allowed, including:
+<ul>
+<li>Anonymous key exchanges.</li>
+<li>Export-grade cryptography.</li>
+</ul>
+</li>
+</ul>
+</section><section id="tls-01-07-reconnection-security"><div class="header-wrapper"><h5 id="x5-8-2-7-tls-01-07-reconnection-security"><bdi class="secno">5.8.2.7 </bdi>[TLS-01.07] Reconnection Security</h5><a class="self-link" href="#tls-01-07-reconnection-security" aria-label="Permalink for Section 5.8.2.7"></a></div>
+<ul>
+<li>Session resumption shall not weaken security:
+<ul>
+<li>If the resumed session was negotiated with weaker parameters, the session shall not be resumed.</li>
+</ul>
+</li>
+<li>Session tickets shall have a limited lifespan and be rotated periodically.</li>
+<li>Expired session tickets shall not be reused.</li>
+</ul>
+</section><section id="tls-01-08-renegotiation-restrictions"><div class="header-wrapper"><h5 id="x5-8-2-8-tls-01-08-renegotiation-restrictions"><bdi class="secno">5.8.2.8 </bdi>[TLS-01.08] Renegotiation Restrictions</h5><a class="self-link" href="#tls-01-08-renegotiation-restrictions" aria-label="Permalink for Section 5.8.2.8"></a></div>
+<ul>
+<li>Renegotiation shall be disabled in TLS 1.2 unless secure renegotiation (RFC 5746) is enforced.</li>
+</ul>
+</section></section><section id="informative-best-practices-2"><div class="header-wrapper"><h4 id="x5-8-3-informative-best-practices"><bdi class="secno">5.8.3 </bdi>Informative Best Practices</h4><a class="self-link" href="#informative-best-practices-2" aria-label="Permalink for Section 5.8.3"></a></div>
+<p>NIST SP 800-52, <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-52r2.pdf">Guidelines for the Selection, Configuration, and Use of Transport Layer Security (TLS) Implementations</a>.</p>
+</section></section><section id="uwb"><div class="header-wrapper"><h3 id="x5-9-uwb"><bdi class="secno">5.9 </bdi>UWB</h3><a class="self-link" href="#uwb" aria-label="Permalink for Section 5.9"></a></div>
+<p>This section applies to IoT Products that implement wireless ranging and/or data communication using Ultra‑Wideband (UWB) operating within the 3.1–10.6 GHz spectral range, as defined in IEEE 802.15.4z.</p>
+<p>UWB allows data exchanges between devices up to a few tens of meters, but additionally to other technologies, allows to perform accurate ranging. It relies on PHY‑layer and MAC‑layer mechanisms to provide:</p>
+<ul>
+<li>Short‑range data exchange.</li>
+<li>Fine‑precision ranging based on Time‑of‑Flight (ToF).</li>
+<li>Secure distance bounding using Scrambled Timestamp Sequences (STS).</li>
+</ul>
+<p>Multiple industry consortia, including FiRa Consortium, Car Connectivity Consortium and Connectivity Standards Alliance (for Aliro), build high‑level protocols upon IEEE 802.15.4z, to implement specific use cases, such as car access, access control, transit fare collection, and payment.</p>
+<p>UWB, as defined in IEEE 802.15.4z, includes strong MAC‑layer protections:</p>
+<ul>
+<li>CCM* frame encryption (AES‑128) with integrated MIC,</li>
+<li>Pseudo‑random STS sequences generated from AES‑based PRNG,</li>
+<li>Resistance to distance‑decreasing attacks, since STS prevents prediction or manipulation,</li>
+<li>Replay protection via frame counters and monotonic sequence numbers.</li>
+</ul>
+<p>These mechanisms provide:</p>
+<ul>
+<li>Confidentiality of transmitted data.</li>
+<li>Integrity protection.</li>
+<li>Ranging with robustness against MITM and replay attacks.</li>
+</ul>
+<p>This section discusses important UWB considerations for cybersecurity and sets requirements for compliance within this program.</p>
+<section id="requirements-4"><div class="header-wrapper"><h4 id="x5-9-1-requirements"><bdi class="secno">5.9.1 </bdi>Requirements</h4><a class="self-link" href="#requirements-4" aria-label="Permalink for Section 5.9.1"></a></div>
+<p>No specific MAC and PHY security are required in the following cases:</p>
+<ul>
+<li>When making a ranging measurement and the measurement is not relevant to cybersecurity; for example, when UWB is used only for appliance remote control or for convenience functions such as locating keys.</li>
+</ul>
+<p>AND</p>
+<ul>
+<li>When all Sensitive Data communications are protected using application-layer encryption OR for public-access devices where unencrypted local communication is justified by the use case, AND all of the following conditions are met:
+<ul>
+<li>No Sensitive Data (as defined in Section 1.1) is transmitted over the unencrypted UWB connection.</li>
+<li>All device management and configuration interfaces require separate authentication.</li>
+<li>The product documentation clearly explains the security implications to users.</li>
+</ul>
+</li>
+</ul>
+<p>For all other cases including:</p>
+<ul>
+<li>Where trustworthiness in ranging is required, e.g. security decisions (like opening a door) are based on distance,</li>
+</ul>
+<p>OR</p>
+<ul>
+<li>Where Sensitive Data or User Data are transmitted over UWB,</li>
+</ul>
+<p>then UWB‑capable IoT Products are expected to implement the following MAC and PHY layer minimum-security capabilities, which are represented in the requirements in following subsections:</p>
+<p><strong>PHY layer security: </strong></p>
+<ol type="A">
+<li>Distance‑Manipulation Resistance</li>
+</ol>
+<ul>
+<li>The UWB implementation shall ensure that STS‑based ranging operations are resistant to prediction of STS symbols, early‑detect/late‑commit manipulation, and common distance reducing attacks.</li>
+</ul>
+<p><strong>MAC</strong><strong>‑Layer Security</strong></p>
+<ol type="A" ;="" start="2">
+<li>Frame encryption</li>
+</ol>
+<ul>
+<li>CCM* encryption with AES‑128 and 64‑bit MIC shall be enabled on all IEEE 802.15.4z frames containing security critical data, based on a session-unique key.</li>
+<li>STS sequences shall be non‑repeating for the duration of a session and derived from a session‑unique key</li>
+<li>Replay protection shall be enforced, using monotonically increasing counters, frame numbering, or equivalent IEEE 802.15.4z‑compliant methods.</li>
+</ul>
+<ol type="A" ;="" start="3">
+<li>Session Key Requirements</li>
+</ol>
+<ul>
+<li>Keys used for STS generation, and UWB frame encryption shall be derived from a session key shared between communicating devices via a protocol providing confidentiality, integrity, authenticity and ensuring uniqueness of the key.</li>
+</ul>
+<p><strong>Secure Data Transmission</strong></p>
+<ol type="A" ;="" start="4">
+<li>All UWB frames carrying unencrypted Sensitive Data or User Data, shall use IEEE 802.15.4 CCM* encryption with a 64‑bit MIC.</li>
+<li>STS sequences shall not repeat during a session and shall be based on an incrementing monotonic counter.</li>
+<li>All keys shall be derived from a session unique key.</li>
+</ol>
+<p><strong>Secure Interface Access</strong></p>
+<ol type="A" ;="" start="7">
+<li>Transmission of session keys to the UWB subsystem shall be performed over an interface which protects their confidentiality and integrity and ensure authenticity of the UWB subsystem.</li>
+<li>The UWB subsystem shall only accept commands from authorized host components.</li>
+<li>Debug functionalities exposing UWB command interfaces or internals shall be disabled in production builds.</li>
+</ol>
+<p><strong>Network Interface Data Protection</strong></p>
+<ol type="A" ;="" start="10">
+<li>Device shall validate MAC/PHY inputs (frame structure, STS integrity, timing feasibility) and shall reject malformed ranging frames, invalid STS sequences, or inconsistent timestamps.</li>
+<li>Devices shall detect and reject late or replayed frames or STS sequence.</li>
+</ol>
+</section><section id="test-procedures-0"><div class="header-wrapper"><h4 id="x5-9-2-test-procedures"><bdi class="secno">5.9.2 </bdi>Test Procedures</h4><a class="self-link" href="#test-procedures-0" aria-label="Permalink for Section 5.9.2"></a></div>
+<p>The following tests are required if the IoT Product is NOT certified according to <a href="https://www.firaconsortium.org/certifications/certification-program">FiRa Core Certification Program</a> including Dynamic and/or Provisioned STS), and either of the following two conditions is met.</p>
+<ul>
+<li>Trustworthiness in distance is required <em>or</em></li>
+<li>Unencrypted Sensitive Data or User Data are transmitted over UWB.</li>
+</ul>
+<section id="secure-data-transmission-2"><div class="header-wrapper"><h5 id="x5-9-2-1-secure-data-transmission"><bdi class="secno">5.9.2.1 </bdi>Secure Data Transmission</h5><a class="self-link" href="#secure-data-transmission-2" aria-label="Permalink for Section 5.9.2.1"></a></div>
+<p><strong>Step 1:</strong> Verify use of IEEE 802.15.4.z security with a validated FiRa MAC Conformance Test Tool by applying test ID MCT_1_1_INI_TSM_DS-TWR_BI_01 (O2O Deferred DS-TWR with incorrect STS). Cover the following areas:</p>
+<ul>
+<li>Traffic capture
+<ul>
+<li>Collect UWB frames across multiple ranging blocks.</li>
+<li>Verify CCM* encryption is applied with 64 bits MIC.</li>
+</ul>
+</li>
+<li>STS analysis
+<ul>
+<li>Extract STS segments across successive ranging and verify absence of repetition.</li>
+</ul>
+</li>
+<li>Replay protection
+<ul>
+<li>Ensure that previously captured UWB frames are rejected.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Acceptance Criteria</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>CCM* encryption with 64-bit MIC is confirmed present on captured UWB frames across multiple ranging blocks; STS segments show no repetition across successive ranging operations; previously captured/replayed frames are rejected by the device.</li>
+</ul>
+<p><strong>FAIL: </strong></p>
+<ul>
+<li>CCM* encryption or the 64-bit MIC is absent or improperly applied on frames carrying security-critical data; STS segments repeat within a session; replayed frames are accepted by the device.</li>
+</ul>
+</section><section id="secure-interface-access-1"><div class="header-wrapper"><h5 id="x5-9-2-2-secure-interface-access"><bdi class="secno">5.9.2.2 </bdi>Secure Interface Access</h5><a class="self-link" href="#secure-interface-access-1" aria-label="Permalink for Section 5.9.2.2"></a></div>
+<p><strong>Step 1: Interface inspection</strong></p>
+<ul>
+<li>Verify that appropriate measure(s) protect the exchange of the Sensitive Data, including keys, over the communication interface(s) of the UWB subsystem (UWBS). For example, Sensitive Data are protected using cryptographic mechanisms tailored to the specific security properties being safeguarded, such as confidentiality, authenticity, and integrity. Alternatively, the communication channel used to transfer the data is secured through appropriate isolation measures that prevent access by unauthorized entities.</li>
+</ul>
+<p><strong>Acceptance Criteria</strong></p>
+<p><strong>PASS: </strong></p>
+<ul>
+<li>The interface(s) used to transmit session keys and other Sensitive Data to the UWBS are confirmed to protect confidentiality and integrity, and ensure the authenticity of the UWBS.</li>
+</ul>
+<p><strong>FAIL: </strong></p>
+<ul>
+<li>Session keys or Sensitive Data are transmitted to the UWBS over an interface lacking confidentiality/integrity protection, or the authenticity of the UWB subsystem cannot be established.</li>
+</ul>
+</section><section id="network-interface-data-protection-0"><div class="header-wrapper"><h5 id="x5-9-2-3-network-interface-data-protection"><bdi class="secno">5.9.2.3 </bdi>Network Interface Data Protection</h5><a class="self-link" href="#network-interface-data-protection-0" aria-label="Permalink for Section 5.9.2.3"></a></div>
+<p><strong>Step 1: Ranging inspection</strong></p>
+<ul>
+<li>Verify proper implementation of IEEE 802.15.4.z ranging with a validated FiRa MAC Conformance Test Tool by applying tests PCT_1_0_RX_BPRF_BI_01 (BPRF - SP0 &amp; SP1 Dirty Packet Test) and PCT_1_0_RX_BPRF_BI_02_x (BPRF - SP3 Dirty Packet Test). Cover:
+<ul>
+<li>Malformed frame injection
+<ul>
+<li>Send incorrect PHY preambles, altered STS, manipulated timestamps. Verify rejection.</li>
+</ul>
+</li>
+<li>Replay attempt
+<ul>
+<li>Replay captured frames; verify rejection.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Acceptance Criteria</strong></p>
+<p><strong>PASS: </strong></p>
+<ul>
+<li>Malformed frames (incorrect PHY preambles, altered STS, manipulated timestamps) are rejected by the device; replayed/captured frames are rejected by the device.</li>
+</ul>
+<p><strong>FAIL: </strong></p>
+<ul>
+<li>The device accepts malformed frames (incorrect preambles, altered STS, manipulated timestamps) or fails to reject replayed frames.</li>
+</ul>
+<p><strong>Additional notes:</strong></p>
+<ul>
+<li><strong>Debug functionality requirement (</strong><strong>5.9.1</strong><strong>, item I)</strong> – “Debug functionalities exposing UWB command interfaces or internals shall be disabled in production builds” – has <strong>no corresponding test procedure</strong> in 5.9.2. If assessing this requirement, it would need to be evaluated via documentation review or firmware/build inspection outside the defined test steps, since no PASS/FAIL criteria are specified in the source text.</li>
+<li><strong>Host authorization requirement (</strong><strong>5.9.1</strong><strong>, item H)</strong> – “The UWB subsystem shall only accept commands from authorized host components” — is also <strong>not explicitly covered</strong> by a dedicated test step in 5.9.2.2 as written; the section only addresses the confidentiality/integrity/authenticity of the interface carrying keys, not authorization of command sources specifically. This gap should be flagged if strict test coverage is required.</li>
+</ul>
+</section></section><section id="informative-best-practices-3"><div class="header-wrapper"><h4 id="x5-9-3-informative-best-practices"><bdi class="secno">5.9.3 </bdi>Informative Best Practices</h4><a class="self-link" href="#informative-best-practices-3" aria-label="Permalink for Section 5.9.3"></a></div>
+<p>For cases where trustworthiness in distance is required or unencrypted Sensitive Data or User Data are transmitted over UWB, the following measures should be implemented to enhance security:</p>
+<ul>
+<li>Use well‑established higher‑layer protocols (e.g., FiRa, CCC Digital Key, Aliro).</li>
+<li>If not, ensure to use two-way sided ranging.</li>
+<li>Refresh session keys frequently, especially for continuous‑ranging scenarios.</li>
+<li>Use Secure Elements or secure enclaves with hardware‑backed key storage, for generation of session keys and long-term credential storage,</li>
+<li>Enforce strict validation of STS correlation, timing consistency, and symbol unpredictability to detect STS tampering or relay attacks.</li>
+</ul>
+</section></section><section id="wi-fi"><div class="header-wrapper"><h3 id="x5-10-wi-fi"><bdi class="secno">5.10 </bdi>Wi‑Fi</h3><a class="self-link" href="#wi-fi" aria-label="Permalink for Section 5.10"></a></div>
+<p>Where devices implement Wi‑Fi connectivity, they shall support the use of industry-recognized security mechanisms, as documented in this section, to protect data confidentiality and integrity over wireless communications, and to mitigate the risks associated with unauthorized access and compromise.</p>
+<section id="requirements-5"><div class="header-wrapper"><h4 id="x5-10-1-requirements"><bdi class="secno">5.10.1 </bdi>Requirements</h4><a class="self-link" href="#requirements-5" aria-label="Permalink for Section 5.10.1"></a></div>
+<ol type="A">
+<li>Devices implementing Wi‑Fi shall support Wi-Fi 4 (based on IEEE 802.11n) or newer MAC/PHY capabilities (e.g., Wi-Fi 5 based on IEEE 802.11ac Wi-Fi 6 based on IEEE 802.11ax, or Wi-Fi 7 based on IEEE 802.11be).</li>
+<li>Implementations shall not support versions of security prior to WPA2.</li>
+<li>Implementations shall support WPA3 security, including SAE-based authentication and compliant cryptographic suites for personal networks.</li>
+<li>Implementations shall adhere to the Wi-Fi Alliance WPA3 specification (<a href="https://www.wi-fi.org/file/wpa3-specification">https://www.wi-fi.org/file/wpa3-specification</a>), including the use of authentication and encryption mechanisms appropriate to the deployment environment.</li>
+<li>Devices shall disable or restrict deprecated protocols including WEP and WPA (with TKIP). [1]</li>
+</ol>
+<p>Devices that have been evaluated under the applicable Wi-Fi CERTIFIED™ industry certification are considered to provide assurance of compliance with the above requirements as well as with recognized security requirements, including validation against known classes of vulnerabilities and publicly disclosed security issues (e.g., key reinstallation, fragmentation and frame aggregation, and security downgrade vulnerabilities), which are periodically reviewed and updated to address emerging threats, as defined by the Wi-Fi Alliance certification and test frameworks.</p>
+</section><section id="informative-best-practices-4"><div class="header-wrapper"><h4 id="x5-10-2-informative-best-practices"><bdi class="secno">5.10.2 </bdi>Informative best practices</h4><a class="self-link" href="#informative-best-practices-4" aria-label="Permalink for Section 5.10.2"></a></div>
+<p>Devices should not rely solely on legacy security mechanisms such as WPA2. Use of WPA2 is allowed, for example, to support legacy devices where necessary. However, WPA3 should be used for all capable devices.</p>
+<p>Manufacturers are encouraged to follow the industry best practices, implementation considerations, and deployment guidelines that are published and maintained by the Wi-Fi Alliance (<a href="https://www.wi-fi.org/security">https://www.wi-fi.org/security</a>).</p>
+</section><section id="wi-fi-security-requirements-test-procedures"><div class="header-wrapper"><h4 id="x5-10-3-wi-fi-security-requirements-test-procedures"><bdi class="secno">5.10.3 </bdi>Wi‑Fi Security Requirements &amp; Test Procedures</h4><a class="self-link" href="#wi-fi-security-requirements-test-procedures" aria-label="Permalink for Section 5.10.3"></a></div>
+<p>Reliance solely on Wi‑Fi encryption is not considered sufficient to meet secure communication requirements. In typical consumer environments with shared network credentials, multiple devices and users may have access to the same network, potentially exposing communications to other authorized network users. Additionally, Wi‑Fi encryption only protects data over the wireless link between the device and the access point, not end-to-end. For example, transmitting Sensitive Data over HTTP – even when connected via WPA3 – protects the data over the Wi-Fi link but still exposes the data to potential interception beyond the access point as it traverses the network. Application-layer protections such as TLS are used to ensure end-to-end security.</p>
+<section id="secure-data-transmission-3"><div class="header-wrapper"><h5 id="x5-10-3-1-secure-data-transmission"><bdi class="secno">5.10.3.1 </bdi>Secure Data Transmission</h5><a class="self-link" href="#secure-data-transmission-3" aria-label="Permalink for Section 5.10.3.1"></a></div>
+<p>For deployment scenarios where user authentication is not required or is not feasible, devices shall support Wi-Fi Enhanced Open (Opportunistic Wireless Encryption) and shall not default to unencrypted open networks. Unencrypted open networks may be used only:</p>
+<ol type="a">
+<li>During initial configuration periods (e.g., onboarding mode or setup AP), AND</li>
+<li>All Sensitive Data communications shall be protected using application-layer encryption.</li>
+</ol>
+<p>In addition, unencrypted open networks may be used for public-access devices where such unencrypted local communication is justified by the use case and all of the following conditions are met:</p>
+<ul>
+<li>No Sensitive Data is transmitted over the unencrypted Wi‑Fi</li>
+<li>All device management and configuration interfaces require separate</li>
+<li>The product documentation clearly explains the security implications to</li>
+</ul>
+<p><strong>Acceptance Criteria:</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>For deployment scenarios where user authentication is not required or feasible, the device supports Wi-Fi Enhanced Open (OWE) rather than defaulting to unencrypted open networks; where unencrypted open networks are used during initial configuration/onboarding, all Sensitive Data communications during that period are protected via application-layer encryption.</li>
+<li>Where unencrypted open networks are used for public-access justified use cases, all three conditions are met — no Sensitive Data transmitted over the unencrypted connection, separate authentication required for management/configuration interfaces, and documented security implications provided to users.</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>Device defaults to an unencrypted open network without supporting OWE</li>
+<li>Sensitive Data is transmitted over an unencrypted open connection during onboarding without application-layer protection.</li>
+<li>For public-access unencrypted use, any of the three required conditions (no Sensitive Data, separate auth for management interfaces, documented implications) is not met.</li>
+</ul>
+</section><section id="secure-interface-access-2"><div class="header-wrapper"><h5 id="x5-10-3-2-secure-interface-access"><bdi class="secno">5.10.3.2 </bdi>Secure Interface Access</h5><a class="self-link" href="#secure-interface-access-2" aria-label="Permalink for Section 5.10.3.2"></a></div>
+<p><strong>Wi‑Fi Implementation: </strong>If the IoT Device functions as a Wi‑Fi access point:</p>
+<ul>
+<li>The default credentials shall be unique per device and not use shared or hardcoded values.</li>
+<li>The default credentials shall be user-changeable through the device interface.</li>
+</ul>
+<p><strong>Acceptance Criteria:</strong></p>
+<p>If the device functions as a Wi-Fi access point:</p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>Default access-point credentials are unique per device (not shared or hardcoded across units); default credentials can be changed by the user.</li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul>
+<li>Default AP credentials are shared/hardcoded across multiple units of the same product; default credentials cannot be changed by the user.</li>
+</ul>
+</section><section id="network-interface-data-protection-1"><div class="header-wrapper"><h5 id="x5-10-3-3-network-interface-data-protection"><bdi class="secno">5.10.3.3 </bdi>Network Interface Data Protection</h5><a class="self-link" href="#network-interface-data-protection-1" aria-label="Permalink for Section 5.10.3.3"></a></div>
+<p><strong>Wi‑Fi Implementation: </strong>When the IoT Product receives Wi‑Fi credentials during onboarding:</p>
+<ul>
+<li>Transmission of credentials shall be encrypted (i.e., TLS).</li>
+<li>Credentials shall not be stored or logged</li>
+<li>Access to stored credentials shall be restricted to Authorized Entities only.</li>
+</ul>
+<p><strong>Acceptance Criteria:</strong></p>
+<p><strong>PASS:</strong></p>
+<ul>
+<li>Wi-Fi credentials transmitted during onboarding are encrypted (e.g., via TLS); credentials are not stored or logged insecurely; access to stored credentials is restricted to Authorized Entities only.</li>
+</ul>
+<p><strong>FAIL: </strong></p>
+<ul>
+<li>Wi-Fi credentials are transmitted in plaintext or without TLS during onboarding; credentials are stored or logged insecurely (e.g., plaintext in logs or config files); stored credentials are accessible to entities other than Authorized Entities.</li>
+</ul>
+</section></section></section><section id="z-wave"><div class="header-wrapper"><h3 id="x5-11-z-wave"><bdi class="secno">5.11 </bdi>Z-Wave</h3><a class="self-link" href="#z-wave" aria-label="Permalink for Section 5.11"></a></div>
+<section id="requirements-6"><div class="header-wrapper"><h4 id="x5-11-1-requirements"><bdi class="secno">5.11.1 </bdi>Requirements</h4><a class="self-link" href="#requirements-6" aria-label="Permalink for Section 5.11.1"></a></div>
+<ol type="A">
+<li>The implementation shall use Z-Wave Security 2 (S2), not S2 is mandatory for all certified devices since April 2017. The version of S2 depends on the product use case:</li>
+</ol>
+<ul>
+<li>S2 Access Control for door locks and similar sensitive</li>
+<li>S2 Authenticated for less critical but still important</li>
+<li>S2 Unauthenticated may be used for low-risk devices like sensors not transmitting Sensitive</li>
+</ul>
+<ol type="A" ;="" start="2">
+<li>The product shall implement unique keys per device and with no default/global keys.</li>
+<li>Devices shall implement secure network inclusion (i.e., using QR codes, DSK) to prevent MITM during onboarding.</li>
+<li>Z-WavenodesshallbeaddedtotheZ-Wavenetwork(PAN)withOut-of-Band(OOB)authenticationto ensurethatthey can be</li>
+</ol>
+<p>Note that the type of key used for authentication can vary based on the type of device. It’s not just to prevent MITM attacks but to avoid rogue sensors getting added to the network.</p>
+<ol type="A" ;="" start="5">
+<li>Communication between the Z-Wave nodes and the controller (PAN) shall use DTLS encryption.</li>
+</ol>
+</section><section id="test-procedures-1"><div class="header-wrapper"><h4 id="x5-11-2-test-procedures"><bdi class="secno">5.11.2 </bdi>Test Procedures</h4><a class="self-link" href="#test-procedures-1" aria-label="Permalink for Section 5.11.2"></a></div>
+<ul>
+<li><strong>Documentation</strong></li>
+</ul>
+<p>The manufacturer shall provide the following documentation:</p>
+<ul>
+<li>Risk assessment to show that the S2 version implemented (Access Control, Authenticated, or Unauthenticated) was the correct one for the product use case.</li>
+<li>Information regarding the provisioning of the unique keys, specifically to show that keys vary across multiple units of the same model.</li>
+</ul>
+<section id="secure-data-transmission-4"><div class="header-wrapper"><h5 id="x5-11-2-1-secure-data-transmission"><bdi class="secno">5.11.2.1 </bdi>Secure Data Transmission</h5><a class="self-link" href="#secure-data-transmission-4" aria-label="Permalink for Section 5.11.2.1"></a></div>
+<p>Step 1: Verify documentation</p>
+<ul>
+<li>Assess the documentation to ensure that the S2 version implemented is appropriate for the product use case.</li>
+<li>Assess the documentation to ensure that keys will vary across multiple units of the same model.</li>
+</ul>
+<p>Step 2: Verify Use of S2 Security</p>
+<ul>
+<li>Capture Z-Wave traffic using a protocol sniffer.</li>
+<li>Verify that the frame payloads are encrypted (not plaintext).</li>
+<li>Confirm use of S2 headers and ECDH key</li>
+</ul>
+<p>Step 3: Test against downgrade or MITM</p>
+<ul>
+<li>Attempt inclusion of the device using only S0 or no encryption.</li>
+<li>Ensure that the device rejects insecure or unauthenticated inclusion attempts unless explicitly supported with fallback.</li>
+<li>Validate secure re-keying behavior after factory</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<p><strong>PASS: </strong></p>
+<ul>
+<li>Captured Z-Wave frame payloads are encrypted (not plaintext); traffic shows use of S2 headers; ECDH key exchange is confirmed during inclusion.</li>
+<li>The device rejects inclusion attempts using S0-only or no encryption (unless S0 fallback is explicitly documented and supported); after a factory reset, the device performs secure re-keying (fresh unique keys, proper S2 inclusion) rather than reusing or defaulting to prior/insecure keys.</li>
+</ul>
+<p><strong>FAIL: </strong></p>
+<ul>
+<li>Frame payloads are transmitted in plaintext; traffic uses S0 (or no) security headers instead of S2; no ECDH key exchange is observed.</li>
+<li>The device accepts inclusion via S0 or unencrypted mode without documented fallback justification; after factory reset, the device re-keys insecurely, retains old keys, or falls back to S0/unauthenticated inclusion.</li>
+</ul>
+</section></section><section id="informative-best-practices-5"><div class="header-wrapper"><h4 id="x5-11-3-informative-best-practices"><bdi class="secno">5.11.3 </bdi>Informative Best Practices</h4><a class="self-link" href="#informative-best-practices-5" aria-label="Permalink for Section 5.11.3"></a></div>
+<p>Silicon Labs provides a good overview on this topic: <a href="https://www.silabs.com/whitepapers/z-wave-security">https://www.silabs.com/whitepapers/z-wave-security</a>.</p>
+</section></section><section id="zigbee"><div class="header-wrapper"><h3 id="x5-12-zigbee"><bdi class="secno">5.12 </bdi>Zigbee</h3><a class="self-link" href="#zigbee" aria-label="Permalink for Section 5.12"></a></div>
+<section id="requirements-7"><div class="header-wrapper"><h4 id="x5-12-1-requirements"><bdi class="secno">5.12.1 </bdi>Requirements</h4><a class="self-link" href="#requirements-7" aria-label="Permalink for Section 5.12.1"></a></div>
+<p>Zigbee protocol security (key establishment, key transport, frame protection, commissioning controls, and related behaviors required by the claimed CSA specification) is assessed through CSA certification.</p>
+<p>Laboratories assessing compliance to this standard are not expected to re-derive or independently re-test Zigbee stack security algorithms when valid CSA Zigbee Certification evidence is provided for the claimed profile.</p>
+<ol type="A">
+<li>Products implementing Zigbee shall be CSA Zigbee-certified for each Zigbee application profile and specification revision claimed in product documentation, labeling, or marketing associated with the assessment. [<a href="https://csa-iot.org/">https://csa-iot.org/</a>]</li>
+<li>The CSA Zigbee Certification evidenced above shall correspond to one or more of: Zigbee Home Automation, Zigbee Light Link, Zigbee Green Power, Zigbee Smart Energy, Zigbee 3.0, or Zigbee 4.0, as applicable to the product.</li>
+<li>If the product implements multiple Zigbee roles or profiles (for example, a bridge/gateway, or a Zigbee router that also implements Green Power Proxy/Sink), each Zigbee role claimed as part of the product's Zigbee connectivity shall be covered by CSA Zigbee Certification evidence.</li>
+<li>The manufacturer shall not claim Zigbee 3.0, Zigbee 4.0, Green Power, or Smart Energy security capabilities in assessment-related materials unless those capabilities are within the scope of the evidenced CSA Zigbee Certification. A product certified only to Home Automation, Light Link, Green Power, or Smart Energy shall be described as such and shall not be represented as Zigbee 3.0-certified or Zigbee 4.0-certified unless a corresponding CSA Zigbee Certification exists.</li>
+</ol>
+<p>A product that has received the applicable CSA Zigbee Certification is considered to have inherent compliance with Zigbee protocol security requirements under this section based on the mandatory security behavior of the certified specification revision. No additional Zigbee protocol security "shall" requirements are defined in this section beyond CSA certification and claim accuracy.</p>
+</section><section id="informative-best-practices-6"><div class="header-wrapper"><h4 id="x5-12-2-informative-best-practices"><bdi class="secno">5.12.2 </bdi>Informative Best Practices</h4><a class="self-link" href="#informative-best-practices-6" aria-label="Permalink for Section 5.12.2"></a></div>
+<p>Zigbee security is a certified stack property. At a high level, Zigbee PRO-based networks (including legacy Home Automation and Light Link deployments that use the Zigbee PRO security model, Smart Energy where applicable, Zigbee 3.0, and Zigbee 4.0) provide:</p>
+<ul>
+<li>Layered frame protection at the Network (NWK) and Application Support (APS) layers, using AES-128 CCM* style protection as specified by CSA for the certified revision.</li>
+<li>Trust Center-mediated joining and network-key delivery in centralized security networks, or distributed Trust Center behavior where permitted by the applicable specification revision.</li>
+<li>Link keys protecting sensitive key transport and, where used, additional application relationships.</li>
+<li>Commissioning controls appropriate to the profile (for example, install codes / pre-configured link key material, touchlink rules for Light Link / inherited 3.0 behavior, and Trust Center policy).</li>
+</ul>
+<p>&nbsp;Manufacturers and deployers are encouraged to:</p>
+<ul>
+<li>Keep commissioning windows and join policies as tight as the product use case allows.</li>
+<li>Prefer certified stacks and follow CSA security guidance for the claimed profile.</li>
+<li>Preserve accurate profile labeling (HA, ZLL, GP, SE, 3.0, 4.0) so consumers and assessors can map claims to certificates.</li>
+<li>Treat Zigbee certification as protocol evidence only; continue to meet product-level baseline cybersecurity requirements (updates, vulnerability intake, support period, etc.) separately.</li>
+</ul>
+<p>CSA maintains Zigbee specifications, certification programs, and related security guidance at <a href="https://csa-iot.org/">https://csa-iot.org</a>.</p>
+<section id="home-automation-and-light-link"><div class="header-wrapper"><h5 id="x5-12-2-1-home-automation-and-light-link"><bdi class="secno">5.12.2.1 </bdi>Home Automation and Light Link</h5><a class="self-link" href="#home-automation-and-light-link" aria-label="Permalink for Section 5.12.2.1"></a></div>
+<p>Zigbee Home Automation and Zigbee Light Link predate Zigbee 3.0 unification. Large numbers of CSA-certified HA and ZLL products remain in the market. Those profiles use the Zigbee PRO security architecture for their certified revisions. Laboratories should not treat "not Zigbee 3.0 / 4.0" as a failure condition when a valid HA or ZLL certificate is evidenced.</p>
+</section><section id="green-power"><div class="header-wrapper"><h5 id="x5-12-2-2-green-power"><bdi class="secno">5.12.2.2 </bdi>Green Power</h5><a class="self-link" href="#green-power" aria-label="Permalink for Section 5.12.2.2"></a></div>
+<p>Zigbee Green Power supports energy-constrained or energy-harvesting Green Power Devices that communicate via Green Power Proxy and/or Sink functions on infrastructure nodes. Green Power security and commissioning are defined in the Zigbee Green Power specification and are covered by CSA certification for the claimed GP roles. Green Power products remain eligible under this section with valid CSA Green Power/Zigbee certification for those roles. Multi-role products are addressed by the multi-role certification requirement above; this note is informative only.</p>
+</section><section id="smart-energy"><div class="header-wrapper"><h5 id="x5-12-2-3-smart-energy"><bdi class="secno">5.12.2.3 </bdi>Smart Energy</h5><a class="self-link" href="#smart-energy" aria-label="Permalink for Section 5.12.2.3"></a></div>
+<p>Zigbee Smart Energy defines application and security behavior for energy-management devices using the Zigbee PRO security architecture with Smart Energy-specific key establishment and authentication requirements for the claimed SE revision. Zigbee 4.0 includes harmonization features such as Smart Energy Authentication Level Control for mixed networks where claimed and certified. Smart Energy products remain eligible under this section with valid CSA Smart Energy certification when the product category is otherwise within program scope. This section does not address unpublished future Smart Energy security work (including post-quantum cryptography).</p>
+</section><section id="zigbee-3-0-security-highlights"><div class="header-wrapper"><h5 id="x5-12-2-4-zigbee-3-0-security-highlights"><bdi class="secno">5.12.2.4 </bdi>Zigbee 3.0 security highlights</h5><a class="self-link" href="#zigbee-3-0-security-highlights" aria-label="Permalink for Section 5.12.2.4"></a></div>
+<p>Zigbee 3.0 unified earlier application profiles onto common Base Device Behavior and strengthened mainstream consumer commissioning and security expectations. Informative highlights for Zigbee 3.0-era certified products include standardized BDB joining/commissioning, Trust Center-mediated network-key delivery protected by link keys, install-code/pre-configured link-key material as required by the applicable BDB and certification rules, and APS/NWK security per the certified Zigbee PRO revision. Exact mandatory behaviors are those of the certified specification and CSA test plan.</p>
+</section><section id="zigbee-4-0-security-highlights"><div class="header-wrapper"><h5 id="x5-12-2-5-zigbee-4-0-security-highlights"><bdi class="secno">5.12.2.5 </bdi>Zigbee 4.0 security highlights</h5><a class="self-link" href="#zigbee-4-0-security-highlights" aria-label="Permalink for Section 5.12.2.5"></a></div>
+<p>Zigbee 4.0 (CSA announcement 18 November 2025; certification program open) builds on Zigbee 3.0. Informative highlights include Dynamic Link Key (DLK) negotiation, Device Interview under Trust Center policy, advanced frame-counter synchronization, Restricted Mode and related network-management controls, Trust Center Swap Out, and Smart Energy Authentication Level Control where applicable. Zigbee 4.0 remains backward compatible with Zigbee 3.0 and Smart Energy as stated by CSA. This section does not require HA, ZLL, Green Power, Smart Energy, or Zigbee 3.0 products to upgrade to Zigbee 4.0. Unpublished future security work (including PQC) is out of scope for this revision.</p>
+</section></section><section id="secure-data-transmission-5"><div class="header-wrapper"><h4 id="x5-12-3-secure-data-transmission"><bdi class="secno">5.12.3 </bdi>Secure Data Transmission</h4><a class="self-link" href="#secure-data-transmission-5" aria-label="Permalink for Section 5.12.3"></a></div>
+<p>For certified Zigbee PRO-based products, Sensitive Data in transit on the Zigbee network is protected using the security services of the claimed specification revision, commonly including:</p>
+<ul>
+<li>NWK-layer security for mesh traffic protection.</li>
+<li>APS-layer security for key transport and, where used, additional application protection.</li>
+<li>AES-128 CCM* style confidentiality and integrity (MIC) as specified by CSA for the certified revision.</li>
+<li>Frame counters/freshness mechanisms as specified to mitigate replay.</li>
+</ul>
+<p>Zigbee 4.0 adds further specified mechanisms (for example, DLK and advanced frame-counter synchronization) when claimed and certified. Laboratories relying on CSA certification need not re-run independent AES / replay laboratory procedures under this section.</p>
+</section><section id="secure-interface-access-3"><div class="header-wrapper"><h4 id="x5-12-4-secure-interface-access"><bdi class="secno">5.12.4 </bdi>Secure Interface Access</h4><a class="self-link" href="#secure-interface-access-3" aria-label="Permalink for Section 5.12.4"></a></div>
+<p>Zigbee joining and ongoing network access are controlled by the security model of the claimed profile, typically including:</p>
+<ul>
+<li>Association/join procedures at the MAC and network layers.</li>
+<li>Trust Center authorization and policy (centralized security), or distributed Trust Center behavior where permitted.</li>
+<li>Delivery of the network key encrypted under an appropriate link key when authorized.</li>
+<li>Profile-specific commissioning controls (install codes, touchlink rules, Green Power commissioning, Smart Energy authentication requirements, Zigbee 4.0 Device Interview / Restricted Mode where claimed).</li>
+</ul>
+<p>These behaviors are covered by CSA certification for the claimed profile; they are described here for understanding, not as additional stand-alone "shall" tests.</p>
+</section><section id="test-procedures-2"><div class="header-wrapper"><h4 id="x5-12-5-test-procedures"><bdi class="secno">5.12.5 </bdi>Test Procedures</h4><a class="self-link" href="#test-procedures-2" aria-label="Permalink for Section 5.12.5"></a></div>
+<p>Because products implementing Zigbee are required to be CSA Zigbee Certified, additional Zigbee protocol security test procedures are not required under this section. Laboratory assessment is limited to verification of certification evidence and claim accuracy.</p>
+<p><strong>TP-ZB-01 Certification evidence</strong></p>
+<p>Obtain from the manufacturer the CSA Zigbee certificate or listing record for the product (or OEM parent SKU mapping, if allowed by CSA program rules). Confirm the certified profile is one of: Zigbee Home Automation, Zigbee Light Link, Zigbee Green Power, Zigbee Smart Energy, Zigbee 3.0, Zigbee 4.0, or another in-scope profile listed above. Confirm the certificate is valid (not expired, revoked, or withdrawn) per CSA program rules at the time of assessment.</p>
+<p><strong>Pass</strong>: Valid CSA Zigbee Certification exists for an in-scope profile matching the product claim.</p>
+<p><strong>TP-ZB-02 Product mapping</strong></p>
+<p>Verify that certificate identifiers, product name/model mapping, and claimed specification revision are consistent across the evidence package and the product under test.&nbsp;</p>
+<p><strong>Pass</strong>: Laboratory can uniquely map the product under assessment to the CSA certification record.</p>
+<p><strong>TP-ZB-03 Multi-role products</strong></p>
+<p>For multi-role / gateway products, identify each claimed Zigbee role in the manufacturer's declaration and repeat TP-ZB-01 / TP-ZB-02 for each role that requires certification under CSA rules.</p>
+<p><strong>Pass</strong>: Each required Zigbee role has corresponding valid certification evidence.</p>
+<p><strong>TP-ZB-04 Claim accuracy</strong></p>
+<p>Review assessment-related product security claims that mention Zigbee version or profile. Compare claims to the certified profile on the CSA record.</p>
+<p><strong>Pass</strong>: No over-claim of Zigbee 3.0, 4.0, Green Power, Smart Energy, or other profile beyond the CSA certificate.</p>
+<p><strong>Explicit non-tests</strong></p>
+<p>Laboratories shall not be required, under this section alone, to:</p>
+<ul>
+<li>Perform AES/CCM* algorithm validation beyond CSA certification.</li>
+<li>Sniff and evaluate Zigbee joining traces as a substitute for CSA certification.</li>
+<li>Require Zigbee 4.0 features on HA, Light Link, Green Power, Smart Energy, or Zigbee 3.0-certified products.</li>
+<li>Assess unpublished or future Zigbee security work (including PQC).</li>
+</ul>
+<p>If a certificate cannot be validated, the product fails the Requirements above; the remedy is CSA certification (or correction of evidence), not ad-hoc Zigbee security testing under this or other standards.</p>
+
+
+
+
+<br><br><br><p><strong></strong></p><center><strong>Consumer Technology Association Document Improvement Proposal</strong></center><p></p>
+<p>If in the review or use of this document a potential change is made evident for safety, health or technical reasons, please email your reason/rationale for the recommended change to <a href="mailto:standards@CTA.tech">standards@CTA.tech</a>.</p>
+<p></p><center>Consumer Technology Association<br>
+Technology &amp; Standards Department<br>
+1919 S Eads Street, Arlington, VA 22202<br>
+FAX: (703) 907-7693<br>
+<a href="mailto:standards@CTA.tech">standards@CTA.tech</a></center><p></p><a href="mailto:standards@CTA.tech">
+
+    
+
+  
+</a></section></section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-highlight-vars">(() => {
+// @ts-check
+
+if (document.respec) {
+  document.respec.ready.then(setupVarHighlighter);
+} else {
+  setupVarHighlighter();
+}
+
+function setupVarHighlighter() {
+  document
+    .querySelectorAll("var")
+    .forEach(varElem => varElem.addEventListener("click", highlightListener));
+}
+
+/**
+ * @param {MouseEvent} ev
+ */
+function highlightListener(ev) {
+  ev.stopPropagation();
+  const varElem = /** @type {HTMLElement} */ (ev.target);
+  const hightligtedElems = highlightVars(varElem);
+  const resetListener = () => {
+    const hlColor = getHighlightColor(varElem);
+    hightligtedElems.forEach(el => removeHighlight(el, hlColor));
+    [...HL_COLORS.keys()].forEach(key => HL_COLORS.set(key, true));
+  };
+  if (hightligtedElems.length) {
+    document.body.addEventListener("click", resetListener, { once: true });
+  }
+}
+
+// availability of highlight colors. colors from var.css
+const HL_COLORS = new Map([
+  ["respec-hl-c1", true],
+  ["respec-hl-c2", true],
+  ["respec-hl-c3", true],
+  ["respec-hl-c4", true],
+  ["respec-hl-c5", true],
+  ["respec-hl-c6", true],
+  ["respec-hl-c7", true],
+]);
+
+/**
+ * @param {HTMLElement} target
+ */
+function getHighlightColor(target) {
+  // return current colors if applicable
+  const { value } = target.classList;
+  const re = /respec-hl-\w+/;
+  const activeClass = re.test(value) && value.match(re);
+  if (activeClass) return activeClass[0];
+
+  // first color preference
+  if (HL_COLORS.get("respec-hl-c1") === true) return "respec-hl-c1";
+
+  // otherwise get some other available color
+  return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
+}
+
+/**
+ * @param {HTMLElement} varElem
+ */
+function highlightVars(varElem) {
+  const textContent = norm(varElem.textContent);
+  const parent = /** @type {HTMLElement} */ (
+    varElem.closest(".algorithm, section")
+  );
+  if (!parent) return [];
+  const highlightColor = getHighlightColor(varElem);
+
+  const varsToHighlight = [...parent.querySelectorAll("var")].filter(
+    el =>
+      norm(el.textContent) === textContent &&
+      el.closest(".algorithm, section") === parent
+  );
+
+  // update availability of highlight color
+  const colorStatus = varsToHighlight[0].classList.contains("respec-hl");
+  HL_COLORS.set(highlightColor, colorStatus);
+
+  // highlight vars
+  if (colorStatus) {
+    varsToHighlight.forEach(el => removeHighlight(el, highlightColor));
+    return [];
+  } else {
+    varsToHighlight.forEach(el => addHighlight(el, highlightColor));
+  }
+  return varsToHighlight;
+}
+
+/**
+ * @param {HTMLElement} el
+ * @param {string} highlightColor
+ */
+function removeHighlight(el, highlightColor) {
+  el.classList.remove("respec-hl", highlightColor);
+  // clean up empty class attributes so they don't come in export
+  if (!el.classList.length) el.removeAttribute("class");
+}
+
+/**
+ * @param {HTMLElement} elem
+ * @param {string} highlightColor
+ */
+function addHighlight(elem, highlightColor) {
+  elem.classList.add("respec-hl", highlightColor);
+}
+
+/**
+ * Same as `norm` from src/core/utils, but our build process doesn't allow
+ * imports in runtime scripts, so duplicated here.
+ * @param {string} str
+ */
+function norm(str) {
+  return str.trim().replace(/\s+/g, " ");
+}
+})()</script><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement | null} */
+  let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement | null} */
+        const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement | null} */
+    const caret = panel.querySelector(".caret");
+    if (caret) caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement | null} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
